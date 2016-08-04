@@ -11,10 +11,8 @@ import Firebase
 
 class UsersTableViewController: UITableViewController {
 
+    
     var ref: FIRDatabaseReference!
-
-    @IBOutlet var searchBarView: UITableView!
-    @IBOutlet weak var searchBar: UISearchBar!
     
     // Array of users from model class
     var userArray = [Users]()
@@ -61,10 +59,9 @@ class UsersTableViewController: UITableViewController {
         return userArray.count
     }
 
-
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("userLoginNameIdentifier", forIndexPath: indexPath) as! UsersTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("usersIdentifier", forIndexPath: indexPath) as! UsersTableViewCell
         
         cell.delegate = self
         
@@ -73,30 +70,8 @@ class UsersTableViewController: UITableViewController {
                 
         return cell
     }
-}
+}  
 
-extension UsersTableViewController: UISearchBarDelegate {
-    
-    func searchBarTextDidEndEditing(searchBar: UISearchBar) {
-        searchBar.showsCancelButton = true
-    }
-    
-    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
-        searchBar.text = ""
-        searchBar.showsCancelButton = false
-        searchBar.resignFirstResponder()
-    }
-    
-    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
-        self.view.endEditing(true)
-        searchBar.showsCancelButton = true
-    }
-    
-    func searchBar(searchBar: UISearchBar, textDidChange searchText: String){
-        print("made a change to the text")
-        
-    }
-}
 
 extension UsersTableViewController: UsersTableViewCellDelegate {
     

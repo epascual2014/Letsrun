@@ -42,19 +42,20 @@ class TimelineTableViewController: UITableViewController {
     func fetchGroups(){
         let groupRef = FIRDatabase.database().reference().child("groups")
         groupRef.observeEventType(.Value) { (groupSnapshot: FIRDataSnapshot) in
-            print(groupSnapshot)
-            print(#function)
+
             
             self.groupArray.removeAll()
             for groupSnap in groupSnapshot.children {
                 let group = Group(groupSnapshot: (groupSnap as! FIRDataSnapshot))
-                
+
                 // Adds value to the group
                 self.groupArray.append(group)
                 self.tableView.reloadData()
+                print(#function, group.groupMembers)
             }
         }
     }
+    
     
     override func viewDidDisappear(animated: Bool) {
         // Removes obeserver so everytime user moves to a different view the
@@ -108,6 +109,7 @@ class TimelineTableViewController: UITableViewController {
                 displayActiveGroupViewController.currentGroup = currentGroup
                 
                 print("Pass the data to the ActiveViewController")
+                print(currentGroup)
                 
             } else {
                 print("nothing")

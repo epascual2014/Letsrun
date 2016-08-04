@@ -12,6 +12,7 @@ import Firebase
 class LoginViewController: UIViewController, GIDSignInUIDelegate {
     
     
+    @IBOutlet weak var backgroundImageView: UIImageView!
     let firebaseHelperLogin = FirebaseHelper()
     
     @IBOutlet weak var emailLoginTextfield: UITextField!
@@ -74,21 +75,21 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+            
         GIDSignIn.sharedInstance().uiDelegate = self
         
     }
     
     //MARK: GID Sign in
-    func signIn(signIn: GIDSignIn!, didSignInForUser user: GIDGoogleUser!, withError error: NSError!) {
-        if (error == nil) {
-            // Perform any operations on sign in user here
-            //performSegueWithIdentifier("presentTabBarController", sender: nil)
-        } else {
-            print("\(error.localizedDescription)")
-            
-        }
-    }
+//    func signIn(signIn: GIDSignIn!, didSignInForUser user: GIDGoogleUser!, withError error: NSError!) {
+//        if (error == nil) {
+//            // Perform any operations on sign in user here
+//            //performSegueWithIdentifier("presentTabBarController", sender: nil)
+//        } else {
+//            print("\(error.localizedDescription)")
+//            
+//        }
+//    }
     
     @IBAction func unwindToUserInfoViewController(segue: UIStoryboardSegue) {
         
@@ -118,5 +119,12 @@ extension UITextField {
         }
     }
 }
+
+
+
+
+
+
+
 
 

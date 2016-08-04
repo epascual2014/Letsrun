@@ -11,64 +11,97 @@ import Firebase
 
 class ActiveGroupViewController: UIViewController {
     
-    var currentGroup: Group?
+    let firebaseHelper = FirebaseHelper()
+    
+    var currentGroup = Group?()
+    
+    //Checking whether current user is a group member.
+    var groupMember = [String:Bool]() {
+        didSet {
+            let thisUser = groupMember.contains { $0.0 == FIRAuth.auth()?.currentUser?.uid }
+            if thisUser {
+                trueUser = true
+            }
+        }
+    }
     
     var ref: FIRDatabaseReference!
-    var groupsRef: FIRDatabaseReference!
-    
+    //var groupsRef: FIRDatabaseReference!
+    var trueUser = false
     
     @IBOutlet weak var groupImageView: UIImageView!
     @IBOutlet weak var groupNameLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var groupDescription: UITextView!
-    
+
+    // Button label and action
+   
     @IBOutlet weak var joinGroupButton: UIButton!
-    @IBAction func joinGroupTapped(sender: AnyObject) {
-//        if currentGroup?.groupMembers == true {
-        if joinGroupButton.titleLabel?.text == "JOIN GROUP"{
-            joinGroupButton.setTitle("LEAVE GROUP", forState: .Normal)
-            //                joinGroup()
-            print("JOIN")
-            print(currentGroup)
-        } else {
-            //                unJoinGroup()
+    
+    @IBAction func joinOrUnjoinTapped(sender: UIButton) {
+        if joinGroupButton.titleLabel?.text == "LEAVE GROUP" {
             joinGroupButton.setTitle("JOIN GROUP", forState: .Normal)
-            print("Unjoin")
+            leaveGroup()
+        } else {
+            joinGroupButton.setTitle("LEAVE GROUP", forState: .Normal)
+            joinGroup()
         }
     }
     
-    //MARK: Join or unjoin group
+    //MARK: Join Group
     func joinGroup() {
         // get the group info on the
         guard let groupID = currentGroup?.groupID, userID = FIRAuth.auth()?.currentUser?.uid else { return }
-        let groupRef = groupsRef.child("groups/\(groupID)/groupMembers/\(userID)")
+        let groupRef = ref.child("groups/\(groupID)/groupMembers/\(userID)")
         groupRef.setValue(true)
+        print(#function, groupRef)
     }
     
-    func unJoinGroup() {
+    //MARK: Leave group
+    func leaveGroup() {
         guard let groupID = currentGroup?.groupID, userID = FIRAuth.auth()?.currentUser?.uid else { return }
-        let groupRef = groupsRef.child("groups/\(groupID)/groupMembers/\(userID)")
+        let groupRef = ref.child("groups/\(groupID)/groupMembers/\(userID)")
         groupRef.removeValue()
         
     }
     
-    //MARK: Fetch group
-    func fetchGroups() {
-        let groupRef = groupsRef.child("/groups/groupID/groupMembers")
+    //MARK: Fetch group data
+    func fetchGroups(completion: ((thisGroup: Group) -> Void)?) {
+            let groupRef = ref.child("groups")
+        
         groupRef.observeSingleEventOfType(.Value) { (groupSnapshot: FIRDataSnapshot) in
-            
-            self.currentGroup = Group(groupSnapshot: groupSnapshot)
+                if groupSnapshot.exists() {
+                    for groupSnap in groupSnapshot.children {
+                        let group = Group(groupSnapshot: (groupSnap as! FIRDataSnapshot))
+                        
+                        let thisGroup = group
+                        print(#function, thisGroup)
+                        completion?(thisGroup: group)
+                    }
+                }
+                
         }
-   }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.dataSource = self
         ref = FIRDatabase.database().reference()
-        groupsRef = ref
-
+        fetchGroups { (thisGroup: Group) -> Void in
+            thisGroup
+            
+            self.groupMember = thisGroup.groupMembers!
+            let isMember = self.groupMember.contains {$0.0 == FIRAuth.auth()?.currentUser?.uid}
+            if isMember {
+                // Set leave group button
+                dispatch_async(dispatch_get_main_queue(), { 
+                    self.joinGroupButton.setTitle("LEAVE GROUP", forState: .Normal)
+//                    print(#function, self.groupMember, self.thisUser.contains {$0.0 == FIRAuth.auth()?.currentUser?.uid})
+                })
+            }
+        }
     }
-    
+
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         

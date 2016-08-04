@@ -18,8 +18,6 @@ enum ReferencePoint: String {
     case Users = "users"
     // Active groups
     case Groups = "groups"
-    // Current invites
-    case GroupInvitations = "invtiations"
     
 }
 
@@ -58,72 +56,4 @@ class FirebaseHelper {
     //        })
     //    }
     
-    //MARK: Save data to Firebase
-    func saveData(data: Groups, toRefPoint refPoint: ReferencePoint) {
-        
-        guard let data = data as? FirebaseConvertInfo else {
-            //            ErrorHandling.defaultErrorHandler(NSError(domain: "Error", code: 1, userInfo:
-            //                [NSLocalizedDescriptionKey: "Sorry data is not compatible with FirebaseConvertible protocol"]))
-            return
-        }
-        
-        switch refPoint {
-        case .Users:
-            saveToUsers(data)
-        case .Groups:
-            saveToGroups(data)
-        case .GroupInvitations:
-            saveToInvitations(data)
-        }
-    }
-    
-    
-    
-    
-    private func saveToUsers(data: FirebaseConvertInfo) {
-        FirebaseHelper._rootRef.child(ReferencePoint.Users.rawValue).childByAutoId().setValue(data.convertToFirebase()) { (error: NSError?, dataRef: FIRDatabaseReference) in
-            if error != nil {
-                // ErrorHandling.defaultErrorHandler(error!)
-                
-            }
-        }
-    }
-    
-    
-    private func saveToGroups(data: FirebaseConvertInfo) {
-        FirebaseHelper.rootRef.child(ReferencePoint.Groups.rawValue).childByAutoId().setValue(data.convertToFirebase()) { (error: NSError?, dataRef: FIRDatabaseReference) in
-            if error != nil {
-                //  ErrorHandling.defaultErrorHandler(error!)
-            }
-        }
-    }
-    
-    private func saveToInvitations(data: FirebaseConvertInfo) {
-        FirebaseHelper.rootRef.child(ReferencePoint.GroupInvitations.rawValue).childByAutoId().setValue(data.convertToFirebase()) { (error: NSError?, dataRef: FIRDatabaseReference) in
-            if error != nil {
-                //  ErrorHandling.defaultErrorHandler(error!)
-            }
-        }
-    }
-    
-    
-    //MARK: Firebase observers - keep data uptodate on the apps screen with Firebase.
-    /// Add a continous observer for the values
-    func addValueObserverForRefPoint(refPoint: ReferencePoint, completion: (FIRDataSnapshot) -> Void) {
-        FirebaseHelper._rootRef.child(refPoint.rawValue).observeEventType(.Value, withBlock: completion)
-    }
-    
-    func addValueObserverForCustomReferencePoint(customRefPoint: String, completion: (FIRDataSnapshot) -> Void) {
-        FirebaseHelper._rootRef.child(customRefPoint).observeEventType(.Value, withBlock: completion)
-    }
-    
-    /// Add Firebase observer for a SINGLE EVENT
-    func addSingleObserverForRefPoint(refPoint:ReferencePoint, completion: (FIRDataSnapshot) -> Void) {
-        FirebaseHelper._rootRef.child(refPoint.rawValue).observeEventType(.Value, withBlock: completion)
-    }
-    
-    /// Remove Firebase Observer
-    func removeObserverForRefPoint(refPoint:ReferencePoint) {
-        FirebaseHelper.rootRef.child(refPoint.rawValue).removeAllObservers()
-    }
 }

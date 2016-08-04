@@ -85,8 +85,6 @@ class CreateGroupViewController: UIViewController {
             groupDictionary["groupName"] = groupName
             groupDictionary["groupMembers"] = [user: true]
             groupDictionary["groupSettings"] = groupPrivacy.rawValue
-            
-
         }
         
         groupReference.updateChildValues(groupDictionary) { (error: NSError?, groupRef: FIRDatabaseReference) in
