@@ -15,6 +15,7 @@ class ActiveGroupViewController: UIViewController {
     
     var currentGroup = Group?()
     
+    
     //Checking whether current user is a group member.
     var groupMember = [String:Bool]() {
         didSet {
@@ -25,13 +26,14 @@ class ActiveGroupViewController: UIViewController {
         }
     }
     
+    var groupUsers = [String:String]()
+    
     var ref: FIRDatabaseReference!
     //var groupsRef: FIRDatabaseReference!
     var trueUser = false
     
     @IBOutlet weak var groupImageView: UIImageView!
     @IBOutlet weak var groupNameLabel: UILabel!
-    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var groupDescription: UITextView!
 
     // Button label and action
@@ -75,7 +77,7 @@ class ActiveGroupViewController: UIViewController {
                         let group = Group(groupSnapshot: (groupSnap as! FIRDataSnapshot))
                         
                         let thisGroup = group
-                        print(#function, thisGroup)
+                        print(#function, thisGroup.groupMembers)
                         completion?(thisGroup: group)
                     }
                 }
@@ -85,7 +87,6 @@ class ActiveGroupViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.dataSource = self
         ref = FIRDatabase.database().reference()
         fetchGroups { (thisGroup: Group) -> Void in
             thisGroup
@@ -114,20 +115,42 @@ class ActiveGroupViewController: UIViewController {
         }
     }
     
+    
+    //MARK: Prepare for segue
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let identifier = segue.identifier {
+            if identifier == "groupMemberSegue" {
+                
+                print("Table View cell tapped")
+                
+                let displayActiveGroupViewController = segue.destinationViewController as! GroupMembersViewController
+                displayActiveGroupViewController.currentGroupKey = currentGroup?.groupID
+                
+                print("Pass the data to the ActiveViewController")
+                print(currentGroup)
+                
+            } else {
+                print("nothing")
+            }
+        }
+    }
+
+    
+    
 }
 
-//MARK: UITableViewDataSource
-extension ActiveGroupViewController: UITableViewDataSource {
-    
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-    }
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("displayFriends", forIndexPath: indexPath) as! ActiveGroupTableViewCell
-        return cell
-    }
-}
+////MARK: UITableViewDataSource
+//extension ActiveGroupViewController: UITableViewDataSource {
+//    
+//    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return 1
+//    }
+//    
+//    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+//        let cell = tableView.dequeueReusableCellWithIdentifier("displayFriends", forIndexPath: indexPath) as! GroupMembersTableViewCell
+//        return cell
+//    }
+//}
 
 
 

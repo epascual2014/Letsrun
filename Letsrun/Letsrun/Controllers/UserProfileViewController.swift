@@ -17,7 +17,17 @@ class UserProfileViewController: UIViewController {
     @IBOutlet weak var userCityLabel: UILabel!
     @IBOutlet weak var userStateLabel: UILabel!
     
-    
+    @IBAction func logOutTapped(sender: AnyObject) {
+        try! FIRAuth.auth()?.signOut()
+        
+        self.view.window?.rootViewController?.dismissViewControllerAnimated(true, completion: nil)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        self.view.window?.rootViewController = storyboard.instantiateViewControllerWithIdentifier("LoginViewController")
+        
+    }
+
+
     var thisUser = Users?()
     
     // This is where the variable is declared
@@ -36,12 +46,13 @@ class UserProfileViewController: UIViewController {
             // Assign labels to properties of the Model
             self.userEmailLabel.text = self.thisUser?.email
             self.loginNameLabel.text = self.thisUser?.loginName
+            //            self.userCityLabel.text = self.thisUser?.city
+            //            self.userStateLabel.text = self.thisUser?.state
             
             if let userImageUrl = self.thisUser?.imageProfileUrl {
                 self.userImageView.loadImageUsingCacheWithUrlString(userImageUrl)
             }
-//            self.userCityLabel.text = self.thisUser?.city
-//            self.userStateLabel.text = self.thisUser?.state
+
         }
     }
 

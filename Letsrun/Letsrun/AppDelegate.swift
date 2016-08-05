@@ -22,10 +22,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         // Firebase initialization
         FIRApp.configure()
         
-        // Signout implement
-//        if FIRAuth.auth()?.currentUser != nil {
-//            try! FIRAuth.auth()?.signOut()
-//        }
+        // Auto signout implement
+        if FIRAuth.auth()?.currentUser != nil {
+            try! FIRAuth.auth()?.signOut()
+        }
+        
         
         GIDSignIn.sharedInstance().clientID = FIRApp.defaultApp()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self

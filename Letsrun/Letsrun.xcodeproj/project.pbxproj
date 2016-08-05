@@ -7,7 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6109E2E81D52B4210085D592 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6109E2E71D52B4210085D592 /* Assets.xcassets */; };
+		6109E2EA1D53A9E40085D592 /* Assets 09-50-12-192.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6109E2E91D53A9E40085D592 /* Assets 09-50-12-192.xcassets */; };
+		6109E2EC1D53AF750085D592 /* StartRunViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6109E2EB1D53AF750085D592 /* StartRunViewController.swift */; };
+		6109E2F01D53C4B10085D592 /* GroupMembersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6109E2EF1D53C4B10085D592 /* GroupMembersViewController.swift */; };
+		6109E2F21D53CA270085D592 /* GroupMemberCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6109E2F11D53CA270085D592 /* GroupMemberCollectionViewCell.swift */; };
+		6109E2F41D53D7FB0085D592 /* ProjectDetailReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6109E2F31D53D7FB0085D592 /* ProjectDetailReport.swift */; };
 		613FDEBD1D47E67800C40560 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613FDEBC1D47E67800C40560 /* Group.swift */; };
 		613FDEBF1D49269200C40560 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613FDEBE1D49269200C40560 /* Extensions.swift */; };
 		6147E5571D36180600B577D8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6147E5561D36180600B577D8 /* GoogleService-Info.plist */; };
@@ -30,7 +34,6 @@
 		61F139101D3D4B46001A9E3E /* Groups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F1390F1D3D4B46001A9E3E /* Groups.swift */; };
 		61F139141D3EA806001A9E3E /* TimelineTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F139131D3EA806001A9E3E /* TimelineTableViewController.swift */; };
 		61FFBC8D1D3ED623004A1BF4 /* TimelineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FFBC8C1D3ED623004A1BF4 /* TimelineTableViewCell.swift */; };
-		61FFBC931D41522C004A1BF4 /* ActiveGroupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FFBC921D41522C004A1BF4 /* ActiveGroupTableViewCell.swift */; };
 		61FFBC951D415B6D004A1BF4 /* Tweets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FFBC941D415B6D004A1BF4 /* Tweets.swift */; };
 		61FFBC971D4160FE004A1BF4 /* ActiveTweetsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FFBC961D4160FE004A1BF4 /* ActiveTweetsTableViewController.swift */; };
 		61FFBC991D416170004A1BF4 /* ActiveTweetsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FFBC981D416170004A1BF4 /* ActiveTweetsTableViewCell.swift */; };
@@ -42,7 +45,11 @@
 		097A86F0851645E784C5E295 /* Pods-Letsrun.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Letsrun.release.xcconfig"; path = "Pods/Target Support Files/Pods-Letsrun/Pods-Letsrun.release.xcconfig"; sourceTree = "<group>"; };
 		1824506C0257597C20F27B0E /* Pods-Letsrun.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Letsrun.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Letsrun/Pods-Letsrun.debug.xcconfig"; sourceTree = "<group>"; };
 		42957019F5BDF86B9D07E41E /* Pods_Letsrun.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Letsrun.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6109E2E71D52B4210085D592 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6109E2E91D53A9E40085D592 /* Assets 09-50-12-192.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Assets 09-50-12-192.xcassets"; sourceTree = "<group>"; };
+		6109E2EB1D53AF750085D592 /* StartRunViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StartRunViewController.swift; path = ../Views/Controllers/StartRunViewController.swift; sourceTree = "<group>"; };
+		6109E2EF1D53C4B10085D592 /* GroupMembersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GroupMembersViewController.swift; path = ../Views/GroupMembersViewController.swift; sourceTree = "<group>"; };
+		6109E2F11D53CA270085D592 /* GroupMemberCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GroupMemberCollectionViewCell.swift; path = ../Controllers/GroupMemberCollectionViewCell.swift; sourceTree = "<group>"; };
+		6109E2F31D53D7FB0085D592 /* ProjectDetailReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectDetailReport.swift; sourceTree = "<group>"; };
 		613FDEBB1D47E28A00C40560 /* Letsrun.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Letsrun.entitlements; sourceTree = "<group>"; };
 		613FDEBC1D47E67800C40560 /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		613FDEBE1D49269200C40560 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -69,7 +76,6 @@
 		61F1390F1D3D4B46001A9E3E /* Groups.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Groups.swift; sourceTree = "<group>"; };
 		61F139131D3EA806001A9E3E /* TimelineTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineTableViewController.swift; sourceTree = "<group>"; };
 		61FFBC8C1D3ED623004A1BF4 /* TimelineTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineTableViewCell.swift; sourceTree = "<group>"; };
-		61FFBC921D41522C004A1BF4 /* ActiveGroupTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActiveGroupTableViewCell.swift; sourceTree = "<group>"; };
 		61FFBC941D415B6D004A1BF4 /* Tweets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tweets.swift; sourceTree = "<group>"; };
 		61FFBC961D4160FE004A1BF4 /* ActiveTweetsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActiveTweetsTableViewController.swift; sourceTree = "<group>"; };
 		61FFBC981D416170004A1BF4 /* ActiveTweetsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActiveTweetsTableViewCell.swift; sourceTree = "<group>"; };
@@ -153,8 +159,8 @@
 		61C1291E1D3565550099F263 /* Delegates */ = {
 			isa = PBXGroup;
 			children = (
-				6109E2E71D52B4210085D592 /* Assets.xcassets */,
 				61C1290B1D35651F0099F263 /* AppDelegate.swift */,
+				6109E2E91D53A9E40085D592 /* Assets 09-50-12-192.xcassets */,
 			);
 			path = Delegates;
 			sourceTree = "<group>";
@@ -183,10 +189,11 @@
 		61F138FC1D3960AB001A9E3E /* TableViewCells */ = {
 			isa = PBXGroup;
 			children = (
+				6109E2EB1D53AF750085D592 /* StartRunViewController.swift */,
 				61FFBC8C1D3ED623004A1BF4 /* TimelineTableViewCell.swift */,
 				61BEC1E41D46D41B00F124BC /* UsersTableViewCell.swift */,
-				61FFBC921D41522C004A1BF4 /* ActiveGroupTableViewCell.swift */,
 				61FFBC981D416170004A1BF4 /* ActiveTweetsTableViewCell.swift */,
+				6109E2F11D53CA270085D592 /* GroupMemberCollectionViewCell.swift */,
 			);
 			name = TableViewCells;
 			path = ../TableViewCells;
@@ -198,12 +205,14 @@
 				61F138FC1D3960AB001A9E3E /* TableViewCells */,
 				61C1292D1D35A4430099F263 /* LoginViewController.swift */,
 				61C129221D3569280099F263 /* CreateGroupViewController.swift */,
-				61C129241D35704A0099F263 /* ActiveGroupViewController.swift */,
 				61FFBC961D4160FE004A1BF4 /* ActiveTweetsTableViewController.swift */,
 				61F139131D3EA806001A9E3E /* TimelineTableViewController.swift */,
 				61BEC1E11D46B3C300F124BC /* UsersTableViewController.swift */,
 				6183B64F1D36B7DB005334F6 /* UserInfoViewController.swift */,
 				614A773C1D4FE309002AABBC /* UserProfileViewController.swift */,
+				61C129241D35704A0099F263 /* ActiveGroupViewController.swift */,
+				6109E2EF1D53C4B10085D592 /* GroupMembersViewController.swift */,
+				6109E2F31D53D7FB0085D592 /* ProjectDetailReport.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -297,8 +306,8 @@
 			files = (
 				61C129161D35651F0099F263 /* LaunchScreen.storyboard in Resources */,
 				6147E5571D36180600B577D8 /* GoogleService-Info.plist in Resources */,
-				6109E2E81D52B4210085D592 /* Assets.xcassets in Resources */,
 				61C129111D35651F0099F263 /* Main.storyboard in Resources */,
+				6109E2EA1D53A9E40085D592 /* Assets 09-50-12-192.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,19 +376,22 @@
 				61BEC1E21D46B3C300F124BC /* UsersTableViewController.swift in Sources */,
 				61C129271D358C9E0099F263 /* PhotoTakingHelper.swift in Sources */,
 				61FFBC951D415B6D004A1BF4 /* Tweets.swift in Sources */,
+				6109E2F41D53D7FB0085D592 /* ProjectDetailReport.swift in Sources */,
+				6109E2F21D53CA270085D592 /* GroupMemberCollectionViewCell.swift in Sources */,
 				61C1290C1D35651F0099F263 /* AppDelegate.swift in Sources */,
 				61F139061D399461001A9E3E /* LetsRunType.swift in Sources */,
 				61BEC1E51D46D41B00F124BC /* UsersTableViewCell.swift in Sources */,
+				6109E2F01D53C4B10085D592 /* GroupMembersViewController.swift in Sources */,
 				61F139101D3D4B46001A9E3E /* Groups.swift in Sources */,
 				61F139141D3EA806001A9E3E /* TimelineTableViewController.swift in Sources */,
 				61FFBC9B1D42927B004A1BF4 /* TestTableViewController.swift in Sources */,
 				61C129251D35704A0099F263 /* ActiveGroupViewController.swift in Sources */,
 				61F139001D396906001A9E3E /* User.swift in Sources */,
 				61F139041D397A48001A9E3E /* ErrorHandling.swift in Sources */,
+				6109E2EC1D53AF750085D592 /* StartRunViewController.swift in Sources */,
 				61F139021D396EEE001A9E3E /* FirebaseHelper.swift in Sources */,
 				61C129231D3569280099F263 /* CreateGroupViewController.swift in Sources */,
 				61FFBC991D416170004A1BF4 /* ActiveTweetsTableViewCell.swift in Sources */,
-				61FFBC931D41522C004A1BF4 /* ActiveGroupTableViewCell.swift in Sources */,
 				61BEC1E71D46D73800F124BC /* Users.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
