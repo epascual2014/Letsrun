@@ -113,7 +113,7 @@ class LoginViewController: UIViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showUserInfoViewController" {
-            guard let navigationController = segue.destinationViewController as? UINavigationController, userInfoViewController = navigationController.topViewController as? UserInfoViewController, userCredentialInfo = sender as? [String:String] else { return }
+            guard let navigationController = segue.destinationViewController as? UINavigationController, userInfoViewController = navigationController.topViewController as? CreateUserViewController, userCredentialInfo = sender as? [String:String] else { return }
             
             
             //            guard let  userInfoViewController = segue.destinationViewController as? UserInfoViewController, userCredentialInfo = sender as? [String: String] else { return }

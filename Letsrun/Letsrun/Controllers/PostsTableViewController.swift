@@ -12,57 +12,51 @@ import FirebaseStorage
 
 class PostsTableViewController: UITableViewController {
     
-    // Post array
+    // Store posts in an array
     var posts = [Post]()
     
-    // Currentuser names
-    var loginName = ""
+    // Store currentuser name
+    var currentUsername = ""
+    
+    @IBOutlet weak var cameraImageView: CircleView!
+    @IBOutlet weak var commentTextfield: UITextField!
+    
+    @IBAction func postImageTapped(sender: UIButton) {
+        let postComment = commentTextfield.text
+        
+        if postComment != "" {
+            let newPost: [String:AnyObject] = ["comments": postComment!,
+                                               "likes": 0,
+                                               "loginName": currentUsername]
+            DataSource.dataSource.createNewPost(newPost)
+        }
+    }
+    
     
     //    static var imageCache: NSCache = NSCache()
     
     var ref: FIRDatabaseReference!
     
-    @IBOutlet weak var captionTextfield: UITextField!
-    
-    @IBAction func postImageTapped(sender: AnyObject) {
-        let postCaption = captionTextfield.text
-        
-        if postCaption != "" {
-            let newPost: [String:AnyObject] = ["postCaption": postCaption!,
-                                               "likes": 0,
-                                               "loginName": loginName]
-            DataSource.dataSource.createNewPost(newPost)
-        }
-    }
-    
     var thisUser = Users?()
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchUser()
+        fetchPosts()
     }
     
     
-    //MARK: Fetchuser
+    // MARK: Fetchuser
     func fetchUser() {
-        DataSource.dataSource.REF_USER_CURRENT.observeEventType(.Value, withBlock: { (snapshot) in
-            let currentUser = snapshot.value?.objectForKey("loginName") as! String
-            
-            print("ED: \(currentUser)")
-            self.loginName = currentUser
-            }, withCancelBlock: { (error) in
-                print(error.description)
+        guard let userID = FIRAuth.auth()?.currentUser?.uid else {
+            return }
+        DataSource.dataSource.REF_USERS.child(userID).observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+            print("ED: Snapshot ---> \(snapshot)")
+            let username = snapshot.value!["loginName"] as! String
+                self.currentUsername = username
         })
     }
-    
-    
-    //        let userRef = ref.child("users")
-    //        userRef.observeSingleEventOfType(.Value) { (userSnapshot: FIRDataSnapshot) in
-    //            print(userSnapshot)
-    //
-    //            // Use self since its inside the function and intialized
-    //            self.thisUser = Users(userSnapshot: userSnapshot)
-    //        }
-    
+
+    // MARK: Fetchposts
     func fetchPosts(){
         DataSource.dataSource.REF_POSTS.observeEventType(.Value, withBlock: { (snapshot) in
             print("ED: \(snapshot.value)")
@@ -72,8 +66,8 @@ class PostsTableViewController: UITableViewController {
                     if let postDictionary = snap.value as? [String:AnyObject] {
                         let key = snap.key
                         let post = Post(postKey: key, postData: postDictionary)
-                        
-                        self.posts.insert(post, atIndex: 0)
+                        self.posts.append(post)
+                        //self.posts.insert(post, atIndex: 0)
                     }
                 }
             }
@@ -100,9 +94,7 @@ class PostsTableViewController: UITableViewController {
         
         if let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier") as? PostsTableViewCell {
             cell.configureCell(post)
-        
             return cell
-            
         } else {
             return PostsTableViewCell()
         }

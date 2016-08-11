@@ -27,7 +27,7 @@ class PostsTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        let tap = UITapGestureRecognizer(target: self, action: "likeTapped")
+        let tap = UITapGestureRecognizer(target: self, action: #selector(likeTapped))
         tap.numberOfTapsRequired = 1
         heartImageview.addGestureRecognizer(tap)
         heartImageview.userInteractionEnabled = true
@@ -40,7 +40,10 @@ class PostsTableViewCell: UITableViewCell {
         self.userNameLabel.text = post.postUsername
         self.likesLabel.text = "\(post.postLikes)"
         
+        // Reference likes with the postKey ID from Firebase
         likeRef = DataSource.dataSource.REF_USER_CURRENT.child("likes").child(post.postKey)
+        
+        // Observes once from Firebase for likes
         likeRef.observeSingleEventOfType(.Value, withBlock: { (snapshot) in
             
             if (snapshot.exists()) {
@@ -56,8 +59,8 @@ class PostsTableViewCell: UITableViewCell {
     
     func likeTapped(sender: UITapGestureRecognizer) {
         likeRef.observeSingleEventOfType(.Value, withBlock: { (snapshot: FIRDataSnapshot) in
-            if let unlike = snapshot.value as? NSNull {
-                print("ED: \(unlike)")
+            if let snapshot = snapshot.value as? NSNull {
+                print("ED: \(snapshot)")
                 
                 //In Post.swift, handles the vote calls likeandunlike func
                 self.heartImageview.image = UIImage(named: "empty-heart")

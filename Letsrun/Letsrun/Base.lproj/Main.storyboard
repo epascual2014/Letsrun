@@ -641,7 +641,7 @@
             </objects>
             <point key="canvasLocation" x="-4454" y="206"/>
         </scene>
-        <!--Posts Table View Controller-->
+        <!--Current Posts-->
         <scene sceneID="0Ic-TS-pOJ">
             <objects>
                 <tableViewController id="evz-ee-gs4" customClass="PostsTableViewController" customModule="Letsrun" customModuleProvider="target" sceneMemberID="viewController">
@@ -653,24 +653,28 @@
                             <rect key="frame" x="0.0" y="64" width="414" height="63"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WSs-r2-zgO">
-                                    <rect key="frame" x="17" y="8" width="51" height="47"/>
-                                </imageView>
-                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n4z-0U-PyV">
-                                    <rect key="frame" x="76" y="8" width="294" height="47"/>
-                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <state key="normal" title="Whats on your mind?">
-                                        <color key="titleColor" red="0.21176470589999999" green="0.63529411759999999" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add a comment" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2fQ-vP-cMN">
+                                    <rect key="frame" x="71" y="15" width="253" height="30"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </textField>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rmc-SV-9uM">
+                                    <rect key="frame" x="332" y="17" width="56" height="30"/>
+                                    <state key="normal" title="POST">
+                                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     </state>
                                     <connections>
-                                        <segue destination="ZwY-We-R1S" kind="presentation" id="uoj-P9-rg5"/>
+                                        <action selector="postImageTapped:" destination="evz-ee-gs4" eventType="touchUpInside" id="NmD-m4-Qqx"/>
                                     </connections>
                                 </button>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="add-image" translatesAutoresizingMaskIntoConstraints="NO" id="WSs-r2-zgO" customClass="CircleView" customModule="Letsrun" customModuleProvider="target">
+                                    <rect key="frame" x="8" y="4" width="55" height="55"/>
+                                </imageView>
                             </subviews>
                             <color key="backgroundColor" red="0.21176470589999999" green="0.63529411759999999" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="429" id="mh8-Lc-Ypa" customClass="PostsTableViewCell" customModule="Letsrun" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="reuseIdentifier" rowHeight="429" id="mh8-Lc-Ypa" customClass="PostsTableViewCell" customModule="Letsrun" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="155" width="414" height="429"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mh8-Lc-Ypa" id="VdD-Lf-JMI">
@@ -683,12 +687,9 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bIY-r0-xvO">
                                             <rect key="frame" x="21" y="9" width="50" height="50"/>
                                         </imageView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ndR-2u-EL1">
-                                            <rect key="frame" x="21" y="330" width="44" height="42"/>
-                                        </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BTH-Xb-dLk">
-                                            <rect key="frame" x="79" y="23" width="76" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <rect key="frame" x="79" y="23" width="121" height="21"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -704,11 +705,14 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="empty-heart" translatesAutoresizingMaskIntoConstraints="NO" id="ctB-AE-fxx">
+                                            <rect key="frame" x="21" y="330" width="44" height="42"/>
+                                        </imageView>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="commentLabel" destination="wz1-tH-eWc" id="Za4-hQ-fk1"/>
-                                    <outlet property="heartImageview" destination="ndR-2u-EL1" id="bMr-Si-Akp"/>
+                                    <outlet property="heartImageview" destination="ctB-AE-fxx" id="HWf-2i-p2g"/>
                                     <outlet property="likesLabel" destination="V4w-Dh-95y" id="e5R-hC-pi2"/>
                                     <outlet property="postImageView" destination="y4F-RK-aPR" id="l7l-Oi-qkh"/>
                                     <outlet property="userImageView" destination="bIY-r0-xvO" id="iuI-Ni-dtJ"/>
@@ -721,8 +725,12 @@
                             <outlet property="delegate" destination="evz-ee-gs4" id="oPe-Ou-mHV"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="9YZ-1e-dLH"/>
+                    <navigationItem key="navigationItem" title="Current Posts" id="9YZ-1e-dLH"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <outlet property="cameraImageView" destination="WSs-r2-zgO" id="2c9-ks-nu3"/>
+                        <outlet property="commentTextfield" destination="2fQ-vP-cMN" id="DnG-5I-xmL"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rGD-Ki-8ol" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -740,19 +748,35 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8aI-hv-lmr">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                                <items>
-                                    <navigationItem title="Title" id="5YS-bQ-nId"/>
-                                </items>
-                            </navigationBar>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IpU-SF-LGP">
-                                <rect key="frame" x="20" y="73" width="201" height="30"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cvE-VK-QZq">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="65"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fJA-Ln-wrd">
+                                        <rect key="frame" x="342" y="27" width="64" height="30"/>
+                                        <state key="normal" title="POST">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cuq-Zb-bEv">
+                                        <rect key="frame" x="8" y="27" width="64" height="30"/>
+                                        <state key="normal" title="cancel">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.21176470589999999" green="0.63529411759999999" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add a comment" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IpU-SF-LGP">
+                                <rect key="frame" x="68" y="356" width="317" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nd9-0V-Lqk">
-                                <rect key="frame" x="20" y="111" width="223" height="143"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zjQ-MS-B4a">
+                                <rect key="frame" x="0.0" y="73" width="414" height="272"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="add-image" translatesAutoresizingMaskIntoConstraints="NO" id="8BP-Fd-XuR">
+                                <rect key="frame" x="14" y="353" width="40" height="36"/>
+                                <color key="backgroundColor" red="0.20000000000000001" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1070,7 +1094,9 @@
         <image name="Run Icon-1" width="22" height="24"/>
         <image name="Slice 1" width="44" height="44"/>
         <image name="add" width="42" height="42"/>
+        <image name="add-image" width="88" height="88"/>
         <image name="check" width="42" height="42"/>
+        <image name="empty-heart" width="70" height="70"/>
         <image name="people" width="42" height="42"/>
         <image name="san-francisco-aerial-view" width="375" height="667"/>
     </resources>

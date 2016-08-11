@@ -58,7 +58,7 @@ class Post {
             self._postLikes = postLikes
         }
         
-        if let postUsername = postData["username"] as? String {
+        if let postUsername = postData["loginName"] as? String {
             self._postUsername = postUsername
         } else {
             self._postUsername = ""
