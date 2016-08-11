@@ -34,6 +34,8 @@ class UserProfileViewController: UIViewController {
     var ref: FIRDatabaseReference!
     var groupsReference: FIRDatabaseReference!
     
+    
+    
     //MARK: Fetchuser
     func fetchUser(user: String) {
         let userRef = ref.child("users").child(user)

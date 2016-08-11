@@ -1,6 +1,5 @@
 //
 //  GroupsTimelineTableViewController.swift
-
 //  Letsrun
 //
 //  Created by Edrick Pascual on 7/19/16.
@@ -124,7 +123,7 @@ class GroupsTimelineTableViewController: UITableViewController {
     }
 }
 
-extension TimelineTableViewController: UISearchBarDelegate {
+extension GroupsTimelineTableViewController: UISearchBarDelegate {
     
     func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
         searchBar.setShowsCancelButton(true, animated: true)

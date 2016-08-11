@@ -101,6 +101,7 @@
                     <navigationItem key="navigationItem" id="EoL-cF-Rtq">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="NO2-fD-gwN">
                             <connections>
+                                <action selector="cancelTapped:" destination="G7U-yK-cOw" id="ZQh-PK-6vB"/>
                                 <segue destination="9XR-Zh-YqM" kind="unwind" unwindAction="unwindToUserInfoViewController:" id="9SY-JT-Cf6"/>
                             </connections>
                         </barButtonItem>
@@ -232,8 +233,8 @@
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
-                        <segue destination="W4t-gR-sit" kind="relationship" relationship="viewControllers" id="FTO-Gt-Odp"/>
                         <segue destination="lpO-HF-Mty" kind="relationship" relationship="viewControllers" id="Z2S-HK-XUD"/>
+                        <segue destination="W4t-gR-sit" kind="relationship" relationship="viewControllers" id="FTO-Gt-Odp"/>
                         <segue destination="0dC-th-Moe" kind="relationship" relationship="viewControllers" id="Rfh-Cy-DfK"/>
                         <segue destination="lR9-XV-IDd" kind="relationship" relationship="viewControllers" id="iMS-Tt-WXT"/>
                     </connections>
@@ -242,10 +243,10 @@
             </objects>
             <point key="canvasLocation" x="-2817" y="-738"/>
         </scene>
-        <!--GROUPS-->
+        <!--Groups-->
         <scene sceneID="d2Y-UB-WSx">
             <objects>
-                <tableViewController id="OIo-g6-QLV" customClass="TimelineTableViewController" customModule="Letsrun" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="OIo-g6-QLV" customClass="GroupsTimelineTableViewController" customModule="Letsrun" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="89" sectionHeaderHeight="28" sectionFooterHeight="28" id="k45-a0-xiq">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -289,7 +290,7 @@
                             </tableViewCell>
                         </prototypes>
                     </tableView>
-                    <navigationItem key="navigationItem" title="GROUPS" id="R79-Wq-YIM">
+                    <navigationItem key="navigationItem" title="Groups" id="R79-Wq-YIM" customClass="Time">
                         <barButtonItem key="leftBarButtonItem" title="Settings" id="0u0-AA-GIS">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </barButtonItem>
@@ -600,11 +601,11 @@
             </objects>
             <point key="canvasLocation" x="-1207" y="-490"/>
         </scene>
-        <!--Home-->
+        <!--Running Groups-->
         <scene sceneID="jSb-yk-z1C">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lpO-HF-Mty" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" image="Slice 1" id="Vre-SE-ZSF"/>
+                    <tabBarItem key="tabBarItem" title="Running Groups" image="Run Icon-1" id="Vre-SE-ZSF"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="lUw-wg-nhh">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -639,7 +640,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QY2-fi-RLc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4454" y="206"/>
+            <point key="canvasLocation" x="-4116" y="224"/>
         </scene>
         <!--Current Posts-->
         <scene sceneID="0Ic-TS-pOJ">
@@ -723,7 +724,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rGD-Ki-8ol" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1240" y="325"/>
+            <point key="canvasLocation" x="-1430" y="349"/>
         </scene>
         <!--Post Picture View Controller-->
         <scene sceneID="oYP-1n-CR6">
@@ -796,48 +797,6 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-664" y="317"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="C4k-hv-2DL">
-            <objects>
-                <viewController id="KAp-hL-QgP" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="CdB-g7-TAV"/>
-                        <viewControllerLayoutGuide type="bottom" id="e0a-t4-lC8"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="VkI-dM-WXf">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n1v-Tl-dkQ">
-                                <rect key="frame" x="58" y="171" width="210" height="50"/>
-                                <color key="backgroundColor" red="0.24313725489999999" green="0.31372549020000001" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Start a Run">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CeF-ml-80O">
-                                <rect key="frame" x="58" y="229" width="210" height="50"/>
-                                <color key="backgroundColor" red="0.21176470589999999" green="0.63529411759999999" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Run History">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Lets Run" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7uv-kJ-Obt">
-                                <rect key="frame" x="58" y="104" width="210" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="4HP-7J-8n2"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="e5I-wr-8QJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1975" y="1169"/>
         </scene>
         <!--Create Event View Controller-->
         <scene sceneID="eOY-V5-VpS">
@@ -1022,11 +981,11 @@
             </objects>
             <point key="canvasLocation" x="-735" y="-1257"/>
         </scene>
-        <!--Profile-->
+        <!--profile-->
         <scene sceneID="n93-Od-kX1">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lR9-XV-IDd" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" image="add" id="j4G-lu-Aa7"/>
+                    <tabBarItem key="tabBarItem" title="profile" image="profile-1" id="j4G-lu-Aa7"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="BHP-wl-fgT">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1065,7 +1024,7 @@
         <scene sceneID="ETf-Wa-R0W">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="W4t-gR-sit" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Posts" image="Run Icon-1" id="ISW-fF-kws"/>
+                    <tabBarItem key="tabBarItem" title="Posts" image="signpost" id="ISW-fF-kws"/>
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="uvE-oz-oaF">
@@ -1079,21 +1038,22 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IAm-cI-dXL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2072" y="349"/>
+            <point key="canvasLocation" x="-1958" y="355"/>
         </scene>
     </scenes>
     <resources>
         <image name="Run Icon-1" width="22" height="24"/>
-        <image name="Slice 1" width="44" height="44"/>
         <image name="add" width="42" height="42"/>
         <image name="add-image" width="88" height="88"/>
         <image name="check" width="42" height="42"/>
         <image name="empty-heart" width="70" height="70"/>
         <image name="people" width="42" height="42"/>
+        <image name="profile-1" width="25" height="19"/>
         <image name="san-francisco-aerial-view" width="375" height="667"/>
+        <image name="signpost" width="25" height="25"/>
         <image name="user_icon" width="1200" height="1200"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Gi0-Oc-hyn"/>
+        <segue reference="VZm-cw-En5"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -51,7 +51,13 @@ class CreateUserViewController: UIViewController {
     @IBOutlet weak var runnerTypeSegementControl: UISegmentedControl!
     @IBOutlet weak var genderSegmentControl: UISegmentedControl!
     
-    // Button to take photo function
+    @IBAction func cancelTapped(sender: UIBarButtonItem) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    
+    
+    // Tap recoginizer used to register camera action
     @IBAction func cameraTappedButton(sender: AnyObject) {
         takePhoto()
     }
@@ -62,7 +68,6 @@ class CreateUserViewController: UIViewController {
         photoTakingHelper = PhotoTakingHelper(viewController: self) {
             (image: UIImage?) in
             self.userPictureImageView.image = image
-            
             print("received a callback")
         }
     }

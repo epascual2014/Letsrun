@@ -42,7 +42,7 @@
 		61F139041D397A48001A9E3E /* ErrorHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F139031D397A48001A9E3E /* ErrorHandling.swift */; };
 		61F139061D399461001A9E3E /* LetsRunType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F139051D399461001A9E3E /* LetsRunType.swift */; };
 		61F139101D3D4B46001A9E3E /* Groups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F1390F1D3D4B46001A9E3E /* Groups.swift */; };
-		61F139141D3EA806001A9E3E /* TimelineTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F139131D3EA806001A9E3E /* TimelineTableViewController.swift */; };
+		61F139141D3EA806001A9E3E /* GroupsTimelineTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F139131D3EA806001A9E3E /* GroupsTimelineTableViewController.swift */; };
 		61FFBC8D1D3ED623004A1BF4 /* TimelineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FFBC8C1D3ED623004A1BF4 /* TimelineTableViewCell.swift */; };
 		61FFBC951D415B6D004A1BF4 /* Tweets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FFBC941D415B6D004A1BF4 /* Tweets.swift */; };
 		61FFBC971D4160FE004A1BF4 /* ActiveTweetsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FFBC961D4160FE004A1BF4 /* ActiveTweetsTableViewController.swift */; };
@@ -92,7 +92,7 @@
 		61F139031D397A48001A9E3E /* ErrorHandling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ErrorHandling.swift; path = Controllers/Helpers/ErrorHandling.swift; sourceTree = "<group>"; };
 		61F139051D399461001A9E3E /* LetsRunType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LetsRunType.swift; sourceTree = "<group>"; };
 		61F1390F1D3D4B46001A9E3E /* Groups.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Groups.swift; sourceTree = "<group>"; };
-		61F139131D3EA806001A9E3E /* TimelineTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineTableViewController.swift; sourceTree = "<group>"; };
+		61F139131D3EA806001A9E3E /* GroupsTimelineTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupsTimelineTableViewController.swift; sourceTree = "<group>"; };
 		61FFBC8C1D3ED623004A1BF4 /* TimelineTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineTableViewCell.swift; sourceTree = "<group>"; };
 		61FFBC941D415B6D004A1BF4 /* Tweets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tweets.swift; sourceTree = "<group>"; };
 		61FFBC961D4160FE004A1BF4 /* ActiveTweetsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActiveTweetsTableViewController.swift; sourceTree = "<group>"; };
@@ -238,7 +238,7 @@
 				614A773C1D4FE309002AABBC /* UserProfileViewController.swift */,
 				6109E2F31D53D7FB0085D592 /* ProjectDetailReport.swift */,
 				6109E2EB1D53AF750085D592 /* StartRunViewController.swift */,
-				61F139131D3EA806001A9E3E /* TimelineTableViewController.swift */,
+				61F139131D3EA806001A9E3E /* GroupsTimelineTableViewController.swift */,
 				61A494761D5CECFD00C96D67 /* PostPictureViewController.swift */,
 				61C193341D5A6CF600092E7A /* PostsTableViewController.swift */,
 			);
@@ -419,7 +419,7 @@
 				6109E2F01D53C4B10085D592 /* GroupMembersViewController.swift in Sources */,
 				6119EA741D5A52FF008C8AED /* DataSource.swift in Sources */,
 				61F139101D3D4B46001A9E3E /* Groups.swift in Sources */,
-				61F139141D3EA806001A9E3E /* TimelineTableViewController.swift in Sources */,
+				61F139141D3EA806001A9E3E /* GroupsTimelineTableViewController.swift in Sources */,
 				61F124031D5BE89C00A7DB6C /* Constants.swift in Sources */,
 				61C193371D5A6D3100092E7A /* ActiveTweetsTableViewCell.swift in Sources */,
 				6189CA8C1D551BFB00593FE1 /* Event.swift in Sources */,

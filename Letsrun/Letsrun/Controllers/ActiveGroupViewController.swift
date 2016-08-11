@@ -136,21 +136,8 @@ class ActiveGroupViewController: UIViewController {
             }
         }
     }
-    
 }
 
-////MARK: UITableViewDataSource
-//extension ActiveGroupViewController: UITableViewDataSource {
-//    
-//    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return 1
-//    }
-//    
-//    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCellWithIdentifier("displayFriends", forIndexPath: indexPath) as! GroupMembersTableViewCell
-//        return cell
-//    }
-//}
 
 
 

@@ -94,6 +94,8 @@ class LoginViewController: UIViewController {
         //        GIDSignIn.sharedInstance().uiDelegate = self
         
     }
+
+
     //
     //    //MARK: GID Sign in
     //    func signIn(signIn: GIDSignIn!, didSignInForUser user: GIDGoogleUser!, withError error: NSError!) {
@@ -105,10 +107,6 @@ class LoginViewController: UIViewController {
     //
     //        }
     //    }
-    
-    @IBAction func unwindToUserInfoViewController(segue: UIStoryboardSegue) {
-        
-    }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showUserInfoViewController" {

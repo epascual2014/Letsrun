@@ -70,7 +70,7 @@ class PostPictureViewController: UIViewController {
     func postToFirebase(imageUrl: String) {
         let newPost: [String:AnyObject] = ["comments": commentTextField.text!,
                                            "imageUrl": imageUrl,
-                                           "profileImageUrl": currentUsername,
+//                                           "profileImageUrl": currentUsername,
                                            "likes": 0,
                                            "loginName": currentUsername]
         DataSource.dataSource.createNewPost(newPost)
@@ -83,9 +83,8 @@ class PostPictureViewController: UIViewController {
         DataSource.dataSource.REF_USERS.child(userID).observeSingleEventOfType(.Value, withBlock: { (snapshot) in
             print("ED: Snapshot ---> \(snapshot)")
             let username = snapshot.value!["loginName"] as! String
-            let profileImage = snapshot.value!["profileImageUrl"] as! String
-            self.currentUserImage = profileImage
-            print("ED:--- \(profileImage)")
+//            let profileImage = snapshot.value!["profileImageUrl"] as! String
+//            self.currentUserImage = profileImage
             self.currentUsername = username
         })
     }

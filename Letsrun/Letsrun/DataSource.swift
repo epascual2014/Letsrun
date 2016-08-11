@@ -26,11 +26,11 @@ class DataSource {
     private var _REF_USERS = _rootRef.child("users")
     private var _REF_GROUPS = _rootRef.child("groups")
     
+    // Storage For profile images
+    private var _REF_USERPROFILE_IMAGES = _storageRef.child("userProfile-pics")
+    
     // Storage references
     private var _REF_POST_IMAGES = _storageRef.child("post-pics")
-    
-    // TO DO: For profile images
-    //private var _REF_USERPROFILE_IMAGES = _storageRef.child("userProfile-pics")
     
     var REF_BASE: FIRDatabaseReference {
         return _REF_BASE
@@ -48,6 +48,10 @@ class DataSource {
         let uid = KeychainWrapper.stringForKey(KEY_UID)
         let user = _REF_USERS.child(uid!)
         return user
+    }
+    
+    var REF_USERPROFILE_IMAGES: FIRStorageReference {
+        return _REF_USERPROFILE_IMAGES
     }
 
     
