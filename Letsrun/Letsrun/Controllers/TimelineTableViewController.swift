@@ -82,8 +82,6 @@ class TimelineTableViewController: UITableViewController {
         
         let group = groupArray[indexPath.row]
         cell.groupNameLabel.text = group.groupName
-        // Test Imageview
-        //cell.groupImageView.image = UIImage(named: "Messaging-Cool-icon")
         
         if let groupImageUrl = group.groupImageUrl {
             cell.groupImageView.loadImageUsingCacheWithUrlString(groupImageUrl)

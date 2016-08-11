@@ -18,26 +18,13 @@ class PostsTableViewController: UITableViewController {
     // Store currentuser name
     var currentUsername = ""
     
+    // Call Phototakinghelper class
+    var photoTakingHelper: PhotoTakingHelper?
+    
     @IBOutlet weak var cameraImageView: CircleView!
     @IBOutlet weak var commentTextfield: UITextField!
-    
-    @IBAction func postImageTapped(sender: UIButton) {
-        let postComment = commentTextfield.text
-        
-        if postComment != "" {
-            let newPost: [String:AnyObject] = ["comments": postComment!,
-                                               "likes": 0,
-                                               "loginName": currentUsername]
-            DataSource.dataSource.createNewPost(newPost)
-        }
-    }
-    
-    
-    //    static var imageCache: NSCache = NSCache()
-    
-    var ref: FIRDatabaseReference!
-    
-    var thisUser = Users?()
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchUser()
@@ -52,7 +39,7 @@ class PostsTableViewController: UITableViewController {
         DataSource.dataSource.REF_USERS.child(userID).observeSingleEventOfType(.Value, withBlock: { (snapshot) in
             print("ED: Snapshot ---> \(snapshot)")
             let username = snapshot.value!["loginName"] as! String
-                self.currentUsername = username
+            self.currentUsername = username
         })
     }
 
@@ -76,7 +63,6 @@ class PostsTableViewController: UITableViewController {
     }
     
     // MARK: - Table view data source
-    
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1

@@ -17,6 +17,7 @@ class Post {
     private var _postLikes: Int!
     private var _postUsername: String!
     private var _postImageUrl: String!
+
     
     var postKey: String {
         return _postKey
@@ -34,11 +35,13 @@ class Post {
         return _postUsername
     }
     
-    var postImageUrl: String {
+    
+    var postImageUrl: String! {
         return _postImageUrl
     }
     
-    init(postComments: String, postLikes: Int, username: String, postImageUrl: String) {
+    
+    init(postComments: String, postLikes: Int, username: String, postImageUrl: String, postUserImageUrl: String) {
         self._postComments = postComments
         self._postLikes = postLikes
         self._postUsername = username

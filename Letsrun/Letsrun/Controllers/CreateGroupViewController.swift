@@ -145,11 +145,14 @@ class CreateGroupViewController: UIViewController {
             }
             // save this to the group id / imgUrl set this url as the value
             if let groupUrl = metadata?.downloadURL()?.absoluteString {
+                
                 self.ref.child("groups").child(groupID).child("groupImageUrl").setValue(groupUrl)
             }
             print("group \(metadata)")
         }
     }
+    
+    
     
     @IBAction func inviteFriendsTapped(sender: AnyObject) {
         

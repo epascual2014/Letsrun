@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ms5-0y-05F">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="zie-Tr-zzw">
     <dependencies>
         <deployment version="1792" identifier="iOS"/>
         <development version="7000" identifier="xcode"/>
@@ -7,10 +7,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--User Info View Controller-->
+        <!--Create User View Controller-->
         <scene sceneID="tJG-bR-xC8">
             <objects>
-                <viewController id="G7U-yK-cOw" customClass="UserInfoViewController" customModule="Letsrun" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="G7U-yK-cOw" customClass="CreateUserViewController" customModule="Letsrun" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ENL-jg-AjU"/>
                         <viewControllerLayoutGuide type="bottom" id="GAQ-ga-bRe"/>
@@ -20,13 +20,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Runner Type:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JY1-VE-THa">
-                                <rect key="frame" x="20" y="469" width="109" height="21"/>
+                                <rect key="frame" x="29" y="456" width="109" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="oGf-rb-dAb">
-                                <rect key="frame" x="137" y="465" width="149" height="29"/>
+                                <rect key="frame" x="137" y="453" width="149" height="29"/>
                                 <segments>
                                     <segment title="Road"/>
                                     <segment title="Trail"/>
@@ -37,29 +37,55 @@
                                     <action selector="runnerSegementedTapped:" destination="G7U-yK-cOw" eventType="valueChanged" id="ges-Xx-rIs"/>
                                 </connections>
                             </segmentedControl>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Jc-bZ-6yz">
-                                <rect key="frame" x="29" y="88" width="209" height="179"/>
+                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="user_icon" translatesAutoresizingMaskIntoConstraints="NO" id="3Jc-bZ-6yz" customClass="CircleView" customModule="Letsrun" customModuleProvider="target">
+                                <rect key="frame" x="77" y="88" width="209" height="209"/>
                                 <color key="backgroundColor" red="0.88731253147125244" green="0.93040883541107178" blue="0.9669945240020752" alpha="1" colorSpace="calibratedRGB"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OPe-yi-jH1">
-                                <rect key="frame" x="29" y="88" width="210" height="180"/>
-                                <state key="normal" title="CAMERA"/>
+                                <gestureRecognizers/>
                                 <connections>
-                                    <action selector="cameraTappedButton:" destination="G7U-yK-cOw" eventType="touchUpInside" id="Ns9-i1-c88"/>
+                                    <outletCollection property="gestureRecognizers" destination="A1j-Vg-Z1T" appends="YES" id="Jsx-nu-VGk"/>
                                 </connections>
-                            </button>
+                            </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Login Name:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7nT-Jo-EBp">
-                                <rect key="frame" x="29" y="275" width="224" height="30"/>
+                                <rect key="frame" x="29" y="328" width="224" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Age:" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YzS-jC-6fK">
-                                <rect key="frame" x="247" y="88" width="48" height="30"/>
+                                <rect key="frame" x="273" y="328" width="48" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Gender:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tnm-Xu-gwE">
+                                <rect key="frame" x="29" y="411" width="65" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="oDe-Lf-L5Z">
+                                <rect key="frame" x="87" y="411" width="80" height="29"/>
+                                <segments>
+                                    <segment title="F"/>
+                                    <segment title="M"/>
+                                </segments>
+                                <color key="tintColor" red="0.066666666666666666" green="0.2627450980392157" blue="0.36470588235294116" alpha="1" colorSpace="calibratedRGB"/>
+                            </segmentedControl>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="City" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ceF-v3-zhm">
+                                <rect key="frame" x="32" y="366" width="221" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="State" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vq8-U5-cax">
+                                <rect key="frame" x="273" y="366" width="48" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Favorite Shoe Brand" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BP6-n9-Wh5">
+                                <rect key="frame" x="175" y="409" width="146" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Ns-xz-oSt">
-                                <rect key="frame" x="15" y="508" width="302" height="44"/>
+                                <rect key="frame" x="19" y="512" width="302" height="44"/>
                                 <color key="backgroundColor" red="0.091878674924373627" green="0.42069441080093384" blue="0.54816782474517822" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="REGISTER">
@@ -69,35 +95,6 @@
                                     <action selector="registerTappedButton:" destination="G7U-yK-cOw" eventType="touchUpInside" id="hHK-7v-9UX"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Gender:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tnm-Xu-gwE">
-                                <rect key="frame" x="247" y="126" width="65" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="oDe-Lf-L5Z">
-                                <rect key="frame" x="247" y="155" width="80" height="29"/>
-                                <segments>
-                                    <segment title="F"/>
-                                    <segment title="M"/>
-                                </segments>
-                                <color key="tintColor" red="0.066666666666666666" green="0.2627450980392157" blue="0.36470588235294116" alpha="1" colorSpace="calibratedRGB"/>
-                            </segmentedControl>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="City" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ceF-v3-zhm">
-                                <rect key="frame" x="32" y="313" width="174" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="State" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vq8-U5-cax">
-                                <rect key="frame" x="220" y="313" width="133" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Favorite Running Shoe Brand:" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BP6-n9-Wh5">
-                                <rect key="frame" x="32" y="363" width="280" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -110,7 +107,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="ageTextfield" destination="YzS-jC-6fK" id="uHj-nn-irv"/>
-                        <outlet property="cameraBoxButton" destination="OPe-yi-jH1" id="ged-bo-8AO"/>
                         <outlet property="cityTextfield" destination="ceF-v3-zhm" id="yPV-fo-MLG"/>
                         <outlet property="genderSegmentControl" destination="oDe-Lf-L5Z" id="vce-RT-oqs"/>
                         <outlet property="loginNameTextfield" destination="7nT-Jo-EBp" id="xQ5-R4-lHk"/>
@@ -123,6 +119,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QLJ-XD-JL0" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="9XR-Zh-YqM" userLabel="Exit" sceneMemberID="exit"/>
+                <tapGestureRecognizer id="A1j-Vg-Z1T">
+                    <connections>
+                        <action selector="cameraTappedButton:" destination="G7U-yK-cOw" id="YsS-Oz-feu"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-3599" y="206"/>
         </scene>
@@ -233,7 +234,6 @@
                     <connections>
                         <segue destination="W4t-gR-sit" kind="relationship" relationship="viewControllers" id="FTO-Gt-Odp"/>
                         <segue destination="lpO-HF-Mty" kind="relationship" relationship="viewControllers" id="Z2S-HK-XUD"/>
-                        <segue destination="ghf-fG-gCo" kind="relationship" relationship="viewControllers" id="mEI-IT-OoU"/>
                         <segue destination="0dC-th-Moe" kind="relationship" relationship="viewControllers" id="Rfh-Cy-DfK"/>
                         <segue destination="lR9-XV-IDd" kind="relationship" relationship="viewControllers" id="iMS-Tt-WXT"/>
                     </connections>
@@ -653,23 +653,16 @@
                             <rect key="frame" x="0.0" y="64" width="414" height="63"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add a comment" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2fQ-vP-cMN">
-                                    <rect key="frame" x="71" y="15" width="253" height="30"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <textInputTraits key="textInputTraits"/>
-                                </textField>
-                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rmc-SV-9uM">
-                                    <rect key="frame" x="332" y="17" width="56" height="30"/>
-                                    <state key="normal" title="POST">
-                                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nhl-JS-LoW">
+                                    <rect key="frame" x="71" y="17" width="248" height="30"/>
+                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <state key="normal" title="POST A PICTURE">
+                                        <color key="titleColor" red="0.090196078430000007" green="0.16078431369999999" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
                                     </state>
                                     <connections>
-                                        <action selector="postImageTapped:" destination="evz-ee-gs4" eventType="touchUpInside" id="NmD-m4-Qqx"/>
+                                        <segue destination="ZwY-We-R1S" kind="presentation" id="Ue5-Pa-EIE"/>
                                     </connections>
                                 </button>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="add-image" translatesAutoresizingMaskIntoConstraints="NO" id="WSs-r2-zgO" customClass="CircleView" customModule="Letsrun" customModuleProvider="target">
-                                    <rect key="frame" x="8" y="4" width="55" height="55"/>
-                                </imageView>
                             </subviews>
                             <color key="backgroundColor" red="0.21176470589999999" green="0.63529411759999999" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
                         </view>
@@ -687,20 +680,20 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bIY-r0-xvO">
                                             <rect key="frame" x="21" y="9" width="50" height="50"/>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BTH-Xb-dLk">
-                                            <rect key="frame" x="79" y="23" width="121" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BTH-Xb-dLk">
+                                            <rect key="frame" x="79" y="23" width="304" height="21"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="comments" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wz1-tH-eWc">
-                                            <rect key="frame" x="73" y="351" width="287" height="21"/>
+                                            <rect key="frame" x="73" y="350" width="287" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="total likes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V4w-Dh-95y">
-                                            <rect key="frame" x="73" y="330" width="55" height="21"/>
+                                            <rect key="frame" x="73" y="329" width="55" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -727,19 +720,15 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Current Posts" id="9YZ-1e-dLH"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
-                    <connections>
-                        <outlet property="cameraImageView" destination="WSs-r2-zgO" id="2c9-ks-nu3"/>
-                        <outlet property="commentTextfield" destination="2fQ-vP-cMN" id="DnG-5I-xmL"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rGD-Ki-8ol" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1240" y="325"/>
         </scene>
-        <!--View Controller-->
+        <!--Post Picture View Controller-->
         <scene sceneID="oYP-1n-CR6">
             <objects>
-                <viewController id="ZwY-We-R1S" sceneMemberID="viewController">
+                <viewController id="ZwY-We-R1S" customClass="PostPictureViewController" customModule="Letsrun" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ocq-ak-uzp"/>
                         <viewControllerLayoutGuide type="bottom" id="NVH-d2-3bj"/>
@@ -751,39 +740,60 @@
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cvE-VK-QZq">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="65"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fJA-Ln-wrd">
-                                        <rect key="frame" x="342" y="27" width="64" height="30"/>
-                                        <state key="normal" title="POST">
-                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cuq-Zb-bEv">
                                         <rect key="frame" x="8" y="27" width="64" height="30"/>
                                         <state key="normal" title="cancel">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="cancelButtonTapped:" destination="ZwY-We-R1S" eventType="touchUpInside" id="MXD-hh-UaX"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FDx-Ih-0KM">
+                                        <rect key="frame" x="354" y="27" width="40" height="30"/>
+                                        <state key="normal" title="POST">
+                                            <color key="titleColor" red="0.090196078430000007" green="0.16078431369999999" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="postPicture:" destination="ZwY-We-R1S" eventType="touchUpInside" id="o8a-Uc-Ieb"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.21176470589999999" green="0.63529411759999999" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zjQ-MS-B4a">
+                                <rect key="frame" x="12" y="73" width="390" height="272"/>
+                                <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="add-image" translatesAutoresizingMaskIntoConstraints="NO" id="8BP-Fd-XuR" customClass="CircleView" customModule="Letsrun" customModuleProvider="target">
+                                <rect key="frame" x="162" y="460" width="80" height="80"/>
+                                <color key="backgroundColor" red="0.20000000000000001" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="P0j-a8-hiw" appends="YES" id="4eh-xs-RJg"/>
+                                </connections>
+                            </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add a comment" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IpU-SF-LGP">
-                                <rect key="frame" x="68" y="356" width="317" height="30"/>
+                                <rect key="frame" x="20" y="367" width="365" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zjQ-MS-B4a">
-                                <rect key="frame" x="0.0" y="73" width="414" height="272"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="add-image" translatesAutoresizingMaskIntoConstraints="NO" id="8BP-Fd-XuR">
-                                <rect key="frame" x="14" y="353" width="40" height="36"/>
-                                <color key="backgroundColor" red="0.20000000000000001" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <outlet property="addImageview" destination="8BP-Fd-XuR" id="ozl-Li-2mh"/>
+                        <outlet property="commentTextField" destination="IpU-SF-LGP" id="hvu-gV-AHO"/>
+                        <outlet property="previewImageview" destination="zjQ-MS-B4a" id="nxm-U7-p4y"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0ob-Kd-Pzk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="P0j-a8-hiw">
+                    <connections>
+                        <action selector="addImageTapped:" destination="ZwY-We-R1S" id="BYK-J4-SLw"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-664" y="317"/>
         </scene>
@@ -823,10 +833,11 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="4HP-7J-8n2"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e5I-wr-8QJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1207" y="1153"/>
+            <point key="canvasLocation" x="-1975" y="1169"/>
         </scene>
         <!--Create Event View Controller-->
         <scene sceneID="eOY-V5-VpS">
@@ -945,7 +956,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YJB-wc-SKE">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YJB-wc-SKE" customClass="CircleView" customModule="Letsrun" customModuleProvider="target">
                                 <rect key="frame" x="21" y="83" width="200" height="200"/>
                                 <color key="backgroundColor" red="0.1999906856158663" green="0.3054143994375112" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
@@ -991,7 +1002,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wqs-lr-IAL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2786" y="1189"/>
+            <point key="canvasLocation" x="-2793" y="1041"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="pMW-Et-Zso">
@@ -1028,7 +1039,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="24k-4j-j4n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2753" y="193"/>
+            <point key="canvasLocation" x="-2793" y="206"/>
         </scene>
         <!--Friends-->
         <scene sceneID="DfF-pr-uBY">
@@ -1048,26 +1059,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k65-dn-r6D" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1980" y="-489"/>
-        </scene>
-        <!--Run-->
-        <scene sceneID="I1M-oH-sqC">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ghf-fG-gCo" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Run" image="Run Icon-1" id="8V1-vi-GDm"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="qJO-lm-BSB">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="KAp-hL-QgP" kind="relationship" relationship="rootViewController" id="44U-sr-cA6"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="OPR-34-M3z" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-2075" y="1170"/>
+            <point key="canvasLocation" x="-1901" y="-490"/>
         </scene>
         <!--Posts-->
         <scene sceneID="ETf-Wa-R0W">
@@ -1087,7 +1079,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IAm-cI-dXL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2052" y="325"/>
+            <point key="canvasLocation" x="-2072" y="349"/>
         </scene>
     </scenes>
     <resources>
@@ -1099,6 +1091,7 @@
         <image name="empty-heart" width="70" height="70"/>
         <image name="people" width="42" height="42"/>
         <image name="san-francisco-aerial-view" width="375" height="667"/>
+        <image name="user_icon" width="1200" height="1200"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Gi0-Oc-hyn"/>

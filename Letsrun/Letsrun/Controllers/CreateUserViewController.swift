@@ -44,7 +44,6 @@ class CreateUserViewController: UIViewController {
     @IBOutlet weak var loginNameTextfield: UITextField!
     @IBOutlet weak var ageTextfield: UITextField!
     @IBOutlet weak var shoebrandTextfield: UITextField!
-    @IBOutlet weak var cameraBoxButton: UIButton!
     
     @IBOutlet weak var cityTextfield: UITextField!
     @IBOutlet weak var stateTextfield: UITextField!
@@ -63,7 +62,6 @@ class CreateUserViewController: UIViewController {
         photoTakingHelper = PhotoTakingHelper(viewController: self) {
             (image: UIImage?) in
             self.userPictureImageView.image = image
-            self.cameraBoxButton.hidden = true
             
             print("received a callback")
         }

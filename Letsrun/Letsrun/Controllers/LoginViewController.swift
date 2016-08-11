@@ -60,7 +60,6 @@ class LoginViewController: UIViewController {
                 if let user = user {
                     let userData = ["provider": user.providerID]
                     self.performSegueWithIdentifier("presentTabBarController", sender: nil)
-                    
                     self.completeSignIn(user.uid, userData: userData)
                 }
             }

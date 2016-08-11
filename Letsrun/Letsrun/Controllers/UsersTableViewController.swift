@@ -46,7 +46,6 @@ class UsersTableViewController: UITableViewController {
                     self.tableView.reloadData()
                 }
             }
-            
         }
     }
 

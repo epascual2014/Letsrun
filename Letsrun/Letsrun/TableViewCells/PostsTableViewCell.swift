@@ -12,7 +12,9 @@ import Firebase
 class PostsTableViewCell: UITableViewCell {
     
     var post: Post!
-    var likeRef: FIRDatabaseReference!
+    var user = Users?()
+    
+    var ref: FIRDatabaseReference!
 
     // Labels and textview outlets
     @IBOutlet weak var userNameLabel: UILabel!
@@ -39,12 +41,12 @@ class PostsTableViewCell: UITableViewCell {
         self.commentLabel.text = post.postComments
         self.userNameLabel.text = post.postUsername
         self.likesLabel.text = "\(post.postLikes)"
+        self.postImageView.loadImageUsingCacheWithUrlString(post.postImageUrl)
         
         // Reference likes with the postKey ID from Firebase
-        likeRef = DataSource.dataSource.REF_USER_CURRENT.child("likes").child(post.postKey)
+        ref = DataSource.dataSource.REF_USER_CURRENT.child("likes").child(post.postKey)
         
-        // Observes once from Firebase for likes
-        likeRef.observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+        ref.observeSingleEventOfType(.Value, withBlock: { (snapshot) in
             
             if (snapshot.exists()) {
                 print("ED: Snapshot ---\(snapshot)")
@@ -57,19 +59,24 @@ class PostsTableViewCell: UITableViewCell {
         })
     }
     
+    
+    func commentPic() {
+        
+    }
+    
     func likeTapped(sender: UITapGestureRecognizer) {
-        likeRef.observeSingleEventOfType(.Value, withBlock: { (snapshot: FIRDataSnapshot) in
+        ref.observeSingleEventOfType(.Value, withBlock: { (snapshot: FIRDataSnapshot) in
             if let snapshot = snapshot.value as? NSNull {
                 print("ED: \(snapshot)")
                 
                 //In Post.swift, handles the vote calls likeandunlike func
                 self.heartImageview.image = UIImage(named: "empty-heart")
                 self.post.likeAndUnlike(true)
-                self.likeRef.setValue(true)
+                self.ref.setValue(true)
             } else {
                 self.heartImageview.image = UIImage(named: "filled-heart")
                 self.post.likeAndUnlike(false)
-                self.likeRef.removeValue()
+                self.ref.removeValue()
             }
             
         })
