@@ -22,6 +22,8 @@ class ActiveGroupViewController: UIViewController {
             let thisUser = groupMember.contains { $0.0 == FIRAuth.auth()?.currentUser?.uid }
             if thisUser {
                 trueUser = true
+            } else {
+                trueUser = false
             }
         }
     }
@@ -80,8 +82,7 @@ class ActiveGroupViewController: UIViewController {
                         print(#function, thisGroup.groupMembers)
                         completion?(thisGroup: group)
                     }
-                }
-                
+            }
         }
     }
     
@@ -97,7 +98,7 @@ class ActiveGroupViewController: UIViewController {
                 // Set leave group button
                 dispatch_async(dispatch_get_main_queue(), { 
                     self.joinGroupButton.setTitle("LEAVE GROUP", forState: .Normal)
-//                    print(#function, self.groupMember, self.thisUser.contains {$0.0 == FIRAuth.auth()?.currentUser?.uid})
+//                    self.createRunButton.hidden = false 
                 })
             }
         }
@@ -115,7 +116,6 @@ class ActiveGroupViewController: UIViewController {
         }
     }
     
-    
     //MARK: Prepare for segue
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let identifier = segue.identifier {
@@ -127,15 +127,15 @@ class ActiveGroupViewController: UIViewController {
                 displayActiveGroupViewController.currentGroupKey = currentGroup?.groupID
                 
                 print("Pass the data to the ActiveViewController")
-                print(currentGroup)
                 
-            } else {
-                print("nothing")
+            } else if identifier == "groupEdit" {
+                
+                let displayActiveGroupViewController = segue.destinationViewController as! CreateEventViewController
+                displayActiveGroupViewController.currentGroupKey = currentGroup?.groupID
+        
             }
         }
     }
-
-    
     
 }
 

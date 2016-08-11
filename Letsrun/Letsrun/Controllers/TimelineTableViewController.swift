@@ -42,7 +42,6 @@ class TimelineTableViewController: UITableViewController {
     func fetchGroups(){
         let groupRef = FIRDatabase.database().reference().child("groups")
         groupRef.observeEventType(.Value) { (groupSnapshot: FIRDataSnapshot) in
-
             
             self.groupArray.removeAll()
             for groupSnap in groupSnapshot.children {

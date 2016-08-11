@@ -12,11 +12,15 @@
 		6109E2F01D53C4B10085D592 /* GroupMembersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6109E2EF1D53C4B10085D592 /* GroupMembersViewController.swift */; };
 		6109E2F21D53CA270085D592 /* GroupMemberCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6109E2F11D53CA270085D592 /* GroupMemberCollectionViewCell.swift */; };
 		6109E2F41D53D7FB0085D592 /* ProjectDetailReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6109E2F31D53D7FB0085D592 /* ProjectDetailReport.swift */; };
+		6119EA741D5A52FF008C8AED /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6119EA731D5A52FF008C8AED /* DataSource.swift */; };
+		612C6A921D5A4018004F13E5 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612C6A911D5A4018004F13E5 /* Post.swift */; };
 		613FDEBD1D47E67800C40560 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613FDEBC1D47E67800C40560 /* Group.swift */; };
 		613FDEBF1D49269200C40560 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613FDEBE1D49269200C40560 /* Extensions.swift */; };
 		6147E5571D36180600B577D8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6147E5561D36180600B577D8 /* GoogleService-Info.plist */; };
 		614A773D1D4FE309002AABBC /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614A773C1D4FE309002AABBC /* UserProfileViewController.swift */; };
 		6183B6501D36B7DB005334F6 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6183B64F1D36B7DB005334F6 /* UserInfoViewController.swift */; };
+		6189CA8A1D551A9400593FE1 /* CreateEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6189CA891D551A9400593FE1 /* CreateEventViewController.swift */; };
+		6189CA8C1D551BFB00593FE1 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6189CA8B1D551BFB00593FE1 /* Event.swift */; };
 		61BEC1E21D46B3C300F124BC /* UsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BEC1E11D46B3C300F124BC /* UsersTableViewController.swift */; };
 		61BEC1E51D46D41B00F124BC /* UsersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BEC1E41D46D41B00F124BC /* UsersTableViewCell.swift */; };
 		61BEC1E71D46D73800F124BC /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BEC1E61D46D73800F124BC /* Users.swift */; };
@@ -27,6 +31,10 @@
 		61C129251D35704A0099F263 /* ActiveGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C129241D35704A0099F263 /* ActiveGroupViewController.swift */; };
 		61C129271D358C9E0099F263 /* PhotoTakingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C129261D358C9E0099F263 /* PhotoTakingHelper.swift */; };
 		61C1292E1D35A4430099F263 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C1292D1D35A4430099F263 /* LoginViewController.swift */; };
+		61C193351D5A6CF600092E7A /* PostsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C193341D5A6CF600092E7A /* PostsTableViewController.swift */; };
+		61C193371D5A6D3100092E7A /* ActiveTweetsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C193361D5A6D3100092E7A /* ActiveTweetsTableViewCell.swift */; };
+		61C193391D5A6D4700092E7A /* PostsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C193381D5A6D4700092E7A /* PostsTableViewCell.swift */; };
+		61F124031D5BE89C00A7DB6C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F124021D5BE89C00A7DB6C /* Constants.swift */; };
 		61F139001D396906001A9E3E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F138FF1D396906001A9E3E /* User.swift */; };
 		61F139021D396EEE001A9E3E /* FirebaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F139011D396EEE001A9E3E /* FirebaseHelper.swift */; };
 		61F139041D397A48001A9E3E /* ErrorHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F139031D397A48001A9E3E /* ErrorHandling.swift */; };
@@ -36,8 +44,6 @@
 		61FFBC8D1D3ED623004A1BF4 /* TimelineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FFBC8C1D3ED623004A1BF4 /* TimelineTableViewCell.swift */; };
 		61FFBC951D415B6D004A1BF4 /* Tweets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FFBC941D415B6D004A1BF4 /* Tweets.swift */; };
 		61FFBC971D4160FE004A1BF4 /* ActiveTweetsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FFBC961D4160FE004A1BF4 /* ActiveTweetsTableViewController.swift */; };
-		61FFBC991D416170004A1BF4 /* ActiveTweetsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FFBC981D416170004A1BF4 /* ActiveTweetsTableViewCell.swift */; };
-		61FFBC9B1D42927B004A1BF4 /* TestTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FFBC9A1D42927B004A1BF4 /* TestTableViewController.swift */; };
 		62BC07461AB26506898A0B46 /* Pods_Letsrun.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42957019F5BDF86B9D07E41E /* Pods_Letsrun.framework */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +56,8 @@
 		6109E2EF1D53C4B10085D592 /* GroupMembersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GroupMembersViewController.swift; path = ../Views/GroupMembersViewController.swift; sourceTree = "<group>"; };
 		6109E2F11D53CA270085D592 /* GroupMemberCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GroupMemberCollectionViewCell.swift; path = ../Controllers/GroupMemberCollectionViewCell.swift; sourceTree = "<group>"; };
 		6109E2F31D53D7FB0085D592 /* ProjectDetailReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectDetailReport.swift; sourceTree = "<group>"; };
+		6119EA731D5A52FF008C8AED /* DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
+		612C6A911D5A4018004F13E5 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		613FDEBB1D47E28A00C40560 /* Letsrun.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Letsrun.entitlements; sourceTree = "<group>"; };
 		613FDEBC1D47E67800C40560 /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		613FDEBE1D49269200C40560 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -57,6 +65,8 @@
 		6147E5561D36180600B577D8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		614A773C1D4FE309002AABBC /* UserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		6183B64F1D36B7DB005334F6 /* UserInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserInfoViewController.swift; path = Letsrun/Controllers/UserInfoViewController.swift; sourceTree = SOURCE_ROOT; };
+		6189CA891D551A9400593FE1 /* CreateEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateEventViewController.swift; sourceTree = "<group>"; };
+		6189CA8B1D551BFB00593FE1 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Event.swift; path = Letsrun/Controllers/Event.swift; sourceTree = SOURCE_ROOT; };
 		61BEC1E11D46B3C300F124BC /* UsersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersTableViewController.swift; sourceTree = "<group>"; };
 		61BEC1E41D46D41B00F124BC /* UsersTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UsersTableViewCell.swift; path = ../Views/Letsrun/TableViewCells/UsersTableViewCell.swift; sourceTree = "<group>"; };
 		61BEC1E61D46D73800F124BC /* Users.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Users.swift; path = Letsrun/Users.swift; sourceTree = "<group>"; };
@@ -69,6 +79,10 @@
 		61C129241D35704A0099F263 /* ActiveGroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ActiveGroupViewController.swift; path = Letsrun/Controllers/ActiveGroupViewController.swift; sourceTree = SOURCE_ROOT; };
 		61C129261D358C9E0099F263 /* PhotoTakingHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoTakingHelper.swift; path = Letsrun/PhotoTakingHelper.swift; sourceTree = SOURCE_ROOT; };
 		61C1292D1D35A4430099F263 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		61C193341D5A6CF600092E7A /* PostsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostsTableViewController.swift; sourceTree = "<group>"; };
+		61C193361D5A6D3100092E7A /* ActiveTweetsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActiveTweetsTableViewCell.swift; sourceTree = "<group>"; };
+		61C193381D5A6D4700092E7A /* PostsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostsTableViewCell.swift; sourceTree = "<group>"; };
+		61F124021D5BE89C00A7DB6C /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		61F138FF1D396906001A9E3E /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Letsrun/User.swift; sourceTree = "<group>"; };
 		61F139011D396EEE001A9E3E /* FirebaseHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirebaseHelper.swift; path = Controllers/Helpers/FirebaseHelper.swift; sourceTree = "<group>"; };
 		61F139031D397A48001A9E3E /* ErrorHandling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ErrorHandling.swift; path = Controllers/Helpers/ErrorHandling.swift; sourceTree = "<group>"; };
@@ -78,8 +92,6 @@
 		61FFBC8C1D3ED623004A1BF4 /* TimelineTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineTableViewCell.swift; sourceTree = "<group>"; };
 		61FFBC941D415B6D004A1BF4 /* Tweets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tweets.swift; sourceTree = "<group>"; };
 		61FFBC961D4160FE004A1BF4 /* ActiveTweetsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActiveTweetsTableViewController.swift; sourceTree = "<group>"; };
-		61FFBC981D416170004A1BF4 /* ActiveTweetsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActiveTweetsTableViewCell.swift; sourceTree = "<group>"; };
-		61FFBC9A1D42927B004A1BF4 /* TestTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestTableViewController.swift; path = Controllers/Helpers/TestTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +183,9 @@
 				61BEC1E31D46B3F100F124BC /* New Model */,
 				61BEC1E61D46D73800F124BC /* Users.swift */,
 				613FDEBC1D47E67800C40560 /* Group.swift */,
+				6189CA8B1D551BFB00593FE1 /* Event.swift */,
+				612C6A911D5A4018004F13E5 /* Post.swift */,
+				61F124021D5BE89C00A7DB6C /* Constants.swift */,
 			);
 			name = Model;
 			path = Views;
@@ -189,30 +204,31 @@
 		61F138FC1D3960AB001A9E3E /* TableViewCells */ = {
 			isa = PBXGroup;
 			children = (
-				6109E2EB1D53AF750085D592 /* StartRunViewController.swift */,
 				61FFBC8C1D3ED623004A1BF4 /* TimelineTableViewCell.swift */,
+				61C193361D5A6D3100092E7A /* ActiveTweetsTableViewCell.swift */,
 				61BEC1E41D46D41B00F124BC /* UsersTableViewCell.swift */,
-				61FFBC981D416170004A1BF4 /* ActiveTweetsTableViewCell.swift */,
 				6109E2F11D53CA270085D592 /* GroupMemberCollectionViewCell.swift */,
+				61C193381D5A6D4700092E7A /* PostsTableViewCell.swift */,
 			);
-			name = TableViewCells;
-			path = ../TableViewCells;
+			path = TableViewCells;
 			sourceTree = "<group>";
 		};
 		61FFBC9C1D447544004A1BF4 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				61F138FC1D3960AB001A9E3E /* TableViewCells */,
-				61C1292D1D35A4430099F263 /* LoginViewController.swift */,
-				61C129221D3569280099F263 /* CreateGroupViewController.swift */,
+				61C129241D35704A0099F263 /* ActiveGroupViewController.swift */,
 				61FFBC961D4160FE004A1BF4 /* ActiveTweetsTableViewController.swift */,
-				61F139131D3EA806001A9E3E /* TimelineTableViewController.swift */,
+				61C1292D1D35A4430099F263 /* LoginViewController.swift */,
+				6189CA891D551A9400593FE1 /* CreateEventViewController.swift */,
+				61C129221D3569280099F263 /* CreateGroupViewController.swift */,
+				6109E2EF1D53C4B10085D592 /* GroupMembersViewController.swift */,
 				61BEC1E11D46B3C300F124BC /* UsersTableViewController.swift */,
 				6183B64F1D36B7DB005334F6 /* UserInfoViewController.swift */,
 				614A773C1D4FE309002AABBC /* UserProfileViewController.swift */,
-				61C129241D35704A0099F263 /* ActiveGroupViewController.swift */,
-				6109E2EF1D53C4B10085D592 /* GroupMembersViewController.swift */,
 				6109E2F31D53D7FB0085D592 /* ProjectDetailReport.swift */,
+				6109E2EB1D53AF750085D592 /* StartRunViewController.swift */,
+				61F139131D3EA806001A9E3E /* TimelineTableViewController.swift */,
+				61C193341D5A6CF600092E7A /* PostsTableViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -222,9 +238,9 @@
 			children = (
 				61C129261D358C9E0099F263 /* PhotoTakingHelper.swift */,
 				61F139011D396EEE001A9E3E /* FirebaseHelper.swift */,
-				61FFBC9A1D42927B004A1BF4 /* TestTableViewController.swift */,
 				61F139031D397A48001A9E3E /* ErrorHandling.swift */,
 				613FDEBE1D49269200C40560 /* Extensions.swift */,
+				6119EA731D5A52FF008C8AED /* DataSource.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -232,6 +248,7 @@
 		61FFBC9E1D4475A1004A1BF4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				61F138FC1D3960AB001A9E3E /* TableViewCells */,
 				61F138FB1D395B12001A9E3E /* Storyboard */,
 			);
 			name = Views;
@@ -369,29 +386,35 @@
 				613FDEBF1D49269200C40560 /* Extensions.swift in Sources */,
 				614A773D1D4FE309002AABBC /* UserProfileViewController.swift in Sources */,
 				61FFBC8D1D3ED623004A1BF4 /* TimelineTableViewCell.swift in Sources */,
+				6189CA8A1D551A9400593FE1 /* CreateEventViewController.swift in Sources */,
 				61C1292E1D35A4430099F263 /* LoginViewController.swift in Sources */,
 				613FDEBD1D47E67800C40560 /* Group.swift in Sources */,
+				61C193351D5A6CF600092E7A /* PostsTableViewController.swift in Sources */,
 				61FFBC971D4160FE004A1BF4 /* ActiveTweetsTableViewController.swift in Sources */,
 				6183B6501D36B7DB005334F6 /* UserInfoViewController.swift in Sources */,
 				61BEC1E21D46B3C300F124BC /* UsersTableViewController.swift in Sources */,
+				612C6A921D5A4018004F13E5 /* Post.swift in Sources */,
 				61C129271D358C9E0099F263 /* PhotoTakingHelper.swift in Sources */,
 				61FFBC951D415B6D004A1BF4 /* Tweets.swift in Sources */,
 				6109E2F41D53D7FB0085D592 /* ProjectDetailReport.swift in Sources */,
 				6109E2F21D53CA270085D592 /* GroupMemberCollectionViewCell.swift in Sources */,
+				61C193391D5A6D4700092E7A /* PostsTableViewCell.swift in Sources */,
 				61C1290C1D35651F0099F263 /* AppDelegate.swift in Sources */,
 				61F139061D399461001A9E3E /* LetsRunType.swift in Sources */,
 				61BEC1E51D46D41B00F124BC /* UsersTableViewCell.swift in Sources */,
 				6109E2F01D53C4B10085D592 /* GroupMembersViewController.swift in Sources */,
+				6119EA741D5A52FF008C8AED /* DataSource.swift in Sources */,
 				61F139101D3D4B46001A9E3E /* Groups.swift in Sources */,
 				61F139141D3EA806001A9E3E /* TimelineTableViewController.swift in Sources */,
-				61FFBC9B1D42927B004A1BF4 /* TestTableViewController.swift in Sources */,
+				61F124031D5BE89C00A7DB6C /* Constants.swift in Sources */,
+				61C193371D5A6D3100092E7A /* ActiveTweetsTableViewCell.swift in Sources */,
+				6189CA8C1D551BFB00593FE1 /* Event.swift in Sources */,
 				61C129251D35704A0099F263 /* ActiveGroupViewController.swift in Sources */,
 				61F139001D396906001A9E3E /* User.swift in Sources */,
 				61F139041D397A48001A9E3E /* ErrorHandling.swift in Sources */,
 				6109E2EC1D53AF750085D592 /* StartRunViewController.swift in Sources */,
 				61F139021D396EEE001A9E3E /* FirebaseHelper.swift in Sources */,
 				61C129231D3569280099F263 /* CreateGroupViewController.swift in Sources */,
-				61FFBC991D416170004A1BF4 /* ActiveTweetsTableViewCell.swift in Sources */,
 				61BEC1E71D46D73800F124BC /* Users.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -516,6 +539,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Letsrun/Letsrun.entitlements;
 				INFOPLIST_FILE = Letsrun/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.edgedesigns.Letsrun;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -530,6 +554,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Letsrun/Letsrun.entitlements;
 				INFOPLIST_FILE = Letsrun/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.edgedesigns.Letsrun;
 				PRODUCT_NAME = "$(TARGET_NAME)";

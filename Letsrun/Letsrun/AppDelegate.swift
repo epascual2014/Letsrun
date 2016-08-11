@@ -12,7 +12,7 @@ import Firebase
 
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var signInCallback: (() ->())?
@@ -23,13 +23,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         FIRApp.configure()
         
         // Auto signout implement
-        if FIRAuth.auth()?.currentUser != nil {
-            try! FIRAuth.auth()?.signOut()
-        }
+//        if FIRAuth.auth()?.currentUser != nil {
+//            try! FIRAuth.auth()?.signOut()
+//        }
         
-        
-        GIDSignIn.sharedInstance().clientID = FIRApp.defaultApp()?.options.clientID
-        GIDSignIn.sharedInstance().delegate = self
+//        
+//        GIDSignIn.sharedInstance().clientID = FIRApp.defaultApp()?.options.clientID
+//        GIDSignIn.sharedInstance().delegate = self
         
         return true
     }
@@ -57,30 +57,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-    // Firebase Google SignIn
-    
-    func signIn(signIn: GIDSignIn!, didSignInForUser user: GIDGoogleUser!, withError error: NSError!) {
-        if let error = error {
-            self.showMessagePrompt(error.localizedDescription)
-            print(error.localizedDescription)
-            return
-        }
-        
-        let authentication = user.authentication
-        let credential = FIRGoogleAuthProvider.credentialWithIDToken(authentication.idToken, accessToken: authentication.accessToken)
-        FIRAuth.auth()?.signInWithCredential(credential) {
-            (user, error) in
-        }
-    }
-    
-    func signIn(signIn: GIDSignIn!, didDisconnectWithUser user: GIDGoogleUser!, withError error: NSError!) {
-        // Perform any operations when the user disconnects from app here
-    }
-    
-    func application(application: UIApplication, openURL url: NSURL, options: [String: AnyObject]) -> Bool {
-        return GIDSignIn.sharedInstance().handleURL(url, sourceApplication: options[UIApplicationOpenURLOptionsSourceApplicationKey] as? String,
-                                                    annotation: options[UIApplicationOpenURLOptionsAnnotationKey])
-    }
+//    // Firebase Google SignIn
+//    
+//    func signIn(signIn: GIDSignIn!, didSignInForUser user: GIDGoogleUser!, withError error: NSError!) {
+//        if let error = error {
+//            self.showMessagePrompt(error.localizedDescription)
+//            print(error.localizedDescription)
+//            return
+//        }
+//        
+//        let authentication = user.authentication
+//        let credential = FIRGoogleAuthProvider.credentialWithIDToken(authentication.idToken, accessToken: authentication.accessToken)
+//        FIRAuth.auth()?.signInWithCredential(credential) {
+//            (user, error) in
+//        }
+//    }
+//    
+//    func signIn(signIn: GIDSignIn!, didDisconnectWithUser user: GIDGoogleUser!, withError error: NSError!) {
+//        // Perform any operations when the user disconnects from app here
+//    }
+//    
+//    func application(application: UIApplication, openURL url: NSURL, options: [String: AnyObject]) -> Bool {
+//        if #available(iOS 9.0, *) {
+//            return GIDSignIn.sharedInstance().handleURL(url, sourceApplication: options[UIApplicationOpenURLOptionsSourceApplicationKey] as? String,
+//                                                        annotation: options[UIApplicationOpenURLOptionsAnnotationKey])
+//        } else {
+//            // Fallback on earlier versions
+//        }
+//    }
     
     // To run in IOS8 or older
 //    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {

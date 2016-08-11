@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MessageUI
 import Firebase
 
 enum GroupPrivacy: Int {
@@ -121,6 +122,7 @@ class CreateGroupViewController: UIViewController {
         }
     }
     
+    // Make user creator as the admin in future
     func groupAdmin() {
 
     }
@@ -151,10 +153,14 @@ class CreateGroupViewController: UIViewController {
     
     @IBAction func inviteFriendsTapped(sender: AnyObject) {
         
-        // Invite friends list view
-        //performSegueWithIdentifier("inviteFriendsIdentifier", sender: nil)
-        
+        let messageVC = MFMessageComposeViewController()
+        messageVC.body = "Enter a message";
+        messageVC.recipients = ["Enter number"]
+        messageVC.messageComposeDelegate = self
+    
+        self.presentViewController(messageVC, animated: true, completion: nil)
     }
+    
     
     @IBAction func selectImageBoxButton(sender: UIButton) {
         takePhoto()
@@ -173,4 +179,23 @@ class CreateGroupViewController: UIViewController {
         super.viewDidLoad()
     }
     
+}
+
+extension CreateGroupViewController: MFMessageComposeViewControllerDelegate {
+    
+    func messageComposeViewController(controller: MFMessageComposeViewController, didFinishWithResult result: MessageComposeResult) {
+        switch (result.rawValue) {
+        case MessageComposeResultCancelled.rawValue:
+                print("Message was cancelled")
+            self.dismissViewControllerAnimated(true, completion: nil)
+        case MessageComposeResultFailed.rawValue:
+                print("Message failed")
+            self.dismissViewControllerAnimated(true, completion: nil)
+        case MessageComposeResultSent.rawValue:
+                print("Message was sent")
+            self.dismissViewControllerAnimated(true, completion: nil)
+        default:
+            break
+        }
+    }
 }

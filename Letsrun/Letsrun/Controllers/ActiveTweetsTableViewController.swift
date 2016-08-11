@@ -45,29 +45,29 @@ class ActiveTweetsTableViewController: UITableViewController {
         }
     }
     
-    @IBAction func addTweetTapped(sender: UIBarButtonItem) {
-        
-        let tweetAlert = UIAlertController(title: "New Tweet", message: "Enter your message", preferredStyle: .Alert)
-        tweetAlert.addTextFieldWithConfigurationHandler { (textField:UITextField) in
-            textField.placeholder = "Your Tweet"
-        }
-        tweetAlert.addAction(UIAlertAction(title: "Send", style: .Default, handler: { (action:UIAlertAction) in
-            if let tweetContent = tweetAlert.textFields?.first?.text {
-                
-                // Tweet object and pass to firebase
-                let userTweet = Tweets(content: tweetContent, addedByUser: "EPascual")
-                
-                // Create a tweet reference to firebase and add the child.
-                let tweetReference = self.databaseReferance.child(tweetContent.lowercaseString)
-                
-                //
-                tweetReference.setValue(userTweet.toAnyObject())
-                
-            }
-        }))
-        
-        self.presentViewController(tweetAlert, animated: true, completion: nil)
-    }
+//    @IBAction func addTweetTapped(sender: UIBarButtonItem) {
+//        
+//        let tweetAlert = UIAlertController(title: "New Tweet", message: "Enter your message", preferredStyle: .Alert)
+//        tweetAlert.addTextFieldWithConfigurationHandler { (textField:UITextField) in
+//            textField.placeholder = "Your Tweet"
+//        }
+//        tweetAlert.addAction(UIAlertAction(title: "Send", style: .Default, handler: { (action:UIAlertAction) in
+//            if let tweetContent = tweetAlert.textFields?.first?.text {
+//                
+//                // Tweet object and pass to firebase
+//                let userTweet = Tweets(content: tweetContent, addedByUser: "EPascual")
+//                
+//                // Create a tweet reference to firebase and add the child.
+//                let tweetReference = self.databaseReferance.child(tweetContent.lowercaseString)
+//                
+//                //
+//                tweetReference.setValue(userTweet.toAnyObject())
+//                
+//            }
+//        }))
+//        
+//        self.presentViewController(tweetAlert, animated: true, completion: nil)
+//    }
    
 
     // MARK: - Table view data source

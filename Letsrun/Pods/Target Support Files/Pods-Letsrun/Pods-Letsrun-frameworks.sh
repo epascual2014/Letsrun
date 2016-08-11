@@ -86,10 +86,10 @@ strip_invalid_archs() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/Bond/Bond.framework"
   install_framework "$BUILT_PRODUCTS_DIR/ConvenienceKit/ConvenienceKit.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/SwiftHEXColors/SwiftHEXColors.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/SwiftKeychainWrapper/SwiftKeychainWrapper.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/Bond/Bond.framework"
   install_framework "$BUILT_PRODUCTS_DIR/ConvenienceKit/ConvenienceKit.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/SwiftHEXColors/SwiftHEXColors.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/SwiftKeychainWrapper/SwiftKeychainWrapper.framework"
 fi

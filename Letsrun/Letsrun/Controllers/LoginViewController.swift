@@ -8,26 +8,24 @@
 
 import UIKit
 import Firebase
+import SwiftKeychainWrapper
 
-class LoginViewController: UIViewController, GIDSignInUIDelegate {
+
+class LoginViewController: UIViewController {
     
     
     @IBOutlet weak var backgroundImageView: UIImageView!
-    let firebaseHelperLogin = FirebaseHelper()
     
     @IBOutlet weak var emailLoginTextfield: UITextField!
     @IBOutlet weak var passwordTextfield: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var notAUserYetLabel: UILabel!
     @IBOutlet weak var registerButton: UIButton!
-    @IBOutlet weak var signInButton: GIDSignInButton!
+    //    @IBOutlet weak var signInButton: GIDSignInButton!
     
     
-    @IBAction func loginTappedButton(sender: UIButton) {
+    @IBAction func loginTappedButton(sender: UIButton) {        
         guard let userEmail = emailLoginTextfield.text, userPassword = passwordTextfield.text else {
-            
-            // Show user if field is incomplete.
-            // ErrorHandling.customErrorMessage("Please enter an email and password")
             print("Form not valid")
             return
         }
@@ -37,23 +35,45 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
             // Sign up "Register"
             let userCredentialInfo = ["email": userEmail, "password": userPassword]
             performSegueWithIdentifier("showUserInfoViewController", sender: userCredentialInfo)
-            print(userCredentialInfo)
+            print("ED:---- \(userCredentialInfo)")
             
         } else {
             // Sign in "Login"
-            loginUserWithEmail(userEmail, password: userPassword)
-            
+            loginWithEmail()
         }
     }
     
-    func loginUserWithEmail(email: String, password: String){
-        firebaseHelperLogin.loginWithEmail(email, password: password) { (user) in
-            if user != nil {
-                self.performSegueWithIdentifier("presentTabBarController", sender: nil)
-            }
+    func loginWithEmail() {
+        guard let userEmail = emailLoginTextfield.text, userPassword = passwordTextfield.text else {
+            
+            // Show user if field is incomplete.
+            // ErrorHandling.customErrorMessage("Please enter an email and password")
+            print("Form not valid")
+            return
         }
+        
+        FIRAuth.auth()?.signInWithEmail(userEmail, password: userPassword, completion: { (user: FIRUser?, error) in
+            if error != nil {
+                print("ED: --- Unable to auth with FIR")
+                return
+            } else {
+                if let user = user {
+                    let userData = ["provider": user.providerID]
+                    self.performSegueWithIdentifier("presentTabBarController", sender: nil)
+                    
+                    self.completeSignIn(user.uid, userData: userData)
+                }
+            }
+        })
     }
-
+    
+    func completeSignIn(uid: String, userData: [String:AnyObject]) {
+        DataSource.dataSource.createFirebaseUser(uid, userData: userData)
+        let keyChainResult = KeychainWrapper.setString(uid, forKey: KEY_UID)
+        print("ED: keychainResult HERE: \(keyChainResult)")
+        performSegueWithIdentifier("presentTabBarController", sender: nil)
+    }
+    
     @IBAction func registerTappedButton(sender: UIButton) {
         if loginButton.titleLabel?.text == "LOGIN" {
             loginButton.setTitle("REGISTER", forState: .Normal)
@@ -69,27 +89,23 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
         
     }
     
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(true)
-            }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-            
-        GIDSignIn.sharedInstance().uiDelegate = self
+        
+        //        GIDSignIn.sharedInstance().uiDelegate = self
         
     }
-    
-    //MARK: GID Sign in
-//    func signIn(signIn: GIDSignIn!, didSignInForUser user: GIDGoogleUser!, withError error: NSError!) {
-//        if (error == nil) {
-//            // Perform any operations on sign in user here
-//            //performSegueWithIdentifier("presentTabBarController", sender: nil)
-//        } else {
-//            print("\(error.localizedDescription)")
-//            
-//        }
-//    }
+    //
+    //    //MARK: GID Sign in
+    //    func signIn(signIn: GIDSignIn!, didSignInForUser user: GIDGoogleUser!, withError error: NSError!) {
+    //        if (error == nil) {
+    //            // Perform any operations on sign in user here
+    //            //performSegueWithIdentifier("presentTabBarController", sender: nil)
+    //        } else {
+    //            print("\(error.localizedDescription)")
+    //
+    //        }
+    //    }
     
     @IBAction func unwindToUserInfoViewController(segue: UIStoryboardSegue) {
         
@@ -100,7 +116,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
             guard let navigationController = segue.destinationViewController as? UINavigationController, userInfoViewController = navigationController.topViewController as? UserInfoViewController, userCredentialInfo = sender as? [String:String] else { return }
             
             
-//            guard let  userInfoViewController = segue.destinationViewController as? UserInfoViewController, userCredentialInfo = sender as? [String: String] else { return }
+            //            guard let  userInfoViewController = segue.destinationViewController as? UserInfoViewController, userCredentialInfo = sender as? [String: String] else { return }
             print(#function, userCredentialInfo)
             userInfoViewController.userCredentialInfo =  userCredentialInfo
         }

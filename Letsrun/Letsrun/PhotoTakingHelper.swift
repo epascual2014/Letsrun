@@ -22,7 +22,6 @@ class PhotoTakingHelper: NSObject {
         self.callback = callback
         
         super.init()
-        
         showPhotoSourceSelection()
         
     }

@@ -16,16 +16,17 @@ class ProjectDetailReport: UIView {
      - added a collection view and outlets
      
     // Finished collection views of users.
-     
-     
-     
+        
+     Aug 9, 2016
+     // Creating posts from users.
      
      */
     
     /*
     //MARK: TO DO LIST
      * Posts from users
-     * Start and end run inside the group.
      * Users profile when clicked images.
+     * Send text invite or email
+     * Start and end run inside the group.
      */
 }
