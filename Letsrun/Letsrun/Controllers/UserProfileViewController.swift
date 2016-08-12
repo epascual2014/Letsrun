@@ -16,6 +16,10 @@ class UserProfileViewController: UIViewController {
     @IBOutlet weak var loginNameLabel: UILabel!
     @IBOutlet weak var userCityLabel: UILabel!
     @IBOutlet weak var userStateLabel: UILabel!
+    @IBOutlet weak var ageLabel: UILabel!
+    @IBOutlet weak var genderLabel: UILabel!
+    @IBOutlet weak var shoeBrandLabel: UILabel!
+    @IBOutlet weak var runnerTypeLabel: UILabel!
     
     @IBAction func logOutTapped(sender: AnyObject) {
         try! FIRAuth.auth()?.signOut()
@@ -34,8 +38,6 @@ class UserProfileViewController: UIViewController {
     var ref: FIRDatabaseReference!
     var groupsReference: FIRDatabaseReference!
     
-    
-    
     //MARK: Fetchuser
     func fetchUser(user: String) {
         let userRef = ref.child("users").child(user)
@@ -48,8 +50,12 @@ class UserProfileViewController: UIViewController {
             // Assign labels to properties of the Model
             self.userEmailLabel.text = self.thisUser?.email
             self.loginNameLabel.text = self.thisUser?.loginName
-            //            self.userCityLabel.text = self.thisUser?.city
-            //            self.userStateLabel.text = self.thisUser?.state
+            self.userCityLabel.text = self.thisUser?.city
+            self.userStateLabel.text = self.thisUser?.state
+            self.ageLabel.text = "\(self.thisUser?.age)"
+            self.genderLabel.text = "\(self.thisUser?.gender)"
+            self.shoeBrandLabel.text = self.thisUser?.shoe
+            self.runnerTypeLabel.text = "\(self.thisUser?.runnerType)"
             
             if let userImageUrl = self.thisUser?.imageProfileUrl {
                 self.userImageView.loadImageUsingCacheWithUrlString(userImageUrl)

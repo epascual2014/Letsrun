@@ -11,3 +11,6 @@ import Foundation
 import Firebase
 
 let KEY_UID = "uid"
+
+// Constant of shadow color
+let SHADOW_GRAY: CGFloat = 120.0 / 255.0

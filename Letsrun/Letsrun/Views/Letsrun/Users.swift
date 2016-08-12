@@ -19,8 +19,8 @@ class Users: NSObject {
     var state: String?
     var shoe: String?
     var runnerType: Int?
-//    var gender: Int!?
-//    var age: Int?
+    var gender: Int?
+    var age: Int?
     
     
     init(userID: String, userInfo: [String:AnyObject]) {
@@ -31,8 +31,8 @@ class Users: NSObject {
         self.state = userInfo["state"] as? String
         self.shoe = userInfo["shoe"] as? String
         self.runnerType = userInfo["runnerType"] as? Int
-//        self.gender = userInfo["gender"] as? Int
-//        self.age = userInfo["age"] as? Int
+        self.gender = userInfo["gender"] as? Int
+        self.age = userInfo["age"] as? Int
         self.imageProfileUrl = userInfo["profileImageUrl"] as? String
 
     }
@@ -47,8 +47,8 @@ class Users: NSObject {
                 self.state = userInfo["state"] as? String
                 self.shoe = userInfo["shoe"] as? String
                 self.runnerType = userInfo["runnerType"] as? Int
-//                self.gender = userInfo["gender"] as? Int
-//                self.age = userInfo["age"] as? Int
+                self.gender = userInfo["gender"] as? Int
+                self.age = userInfo["age"] as? Int
                 
                 if let imageProfileUrl = userInfo["profileImageUrl"] as? String {
                     self.imageProfileUrl = imageProfileUrl
