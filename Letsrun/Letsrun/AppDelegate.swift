@@ -10,7 +10,6 @@ import UIKit
 import Firebase
 
 
-
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -27,9 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //            try! FIRAuth.auth()?.signOut()
 //        }
         
-//        
-//        GIDSignIn.sharedInstance().clientID = FIRApp.defaultApp()?.options.clientID
-//        GIDSignIn.sharedInstance().delegate = self
+
         
         return true
     }
@@ -57,41 +54,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-//    // Firebase Google SignIn
-//    
-//    func signIn(signIn: GIDSignIn!, didSignInForUser user: GIDGoogleUser!, withError error: NSError!) {
-//        if let error = error {
-//            self.showMessagePrompt(error.localizedDescription)
-//            print(error.localizedDescription)
-//            return
-//        }
-//        
-//        let authentication = user.authentication
-//        let credential = FIRGoogleAuthProvider.credentialWithIDToken(authentication.idToken, accessToken: authentication.accessToken)
-//        FIRAuth.auth()?.signInWithCredential(credential) {
-//            (user, error) in
-//        }
-//    }
-//    
-//    func signIn(signIn: GIDSignIn!, didDisconnectWithUser user: GIDGoogleUser!, withError error: NSError!) {
-//        // Perform any operations when the user disconnects from app here
-//    }
-//    
-//    func application(application: UIApplication, openURL url: NSURL, options: [String: AnyObject]) -> Bool {
-//        if #available(iOS 9.0, *) {
-//            return GIDSignIn.sharedInstance().handleURL(url, sourceApplication: options[UIApplicationOpenURLOptionsSourceApplicationKey] as? String,
-//                                                        annotation: options[UIApplicationOpenURLOptionsAnnotationKey])
-//        } else {
-//            // Fallback on earlier versions
-//        }
-//    }
-    
-    // To run in IOS8 or older
-//    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
-//        var options: [String: AnyObject] = [UIApplicationOpenURLOptionsSourceApplicationKey: sourceApplication, UIApplicationOpenURLOptionsAnnotationKey: annotation]
-//        
-//        return GIDSignIn.sharedInstance().handleURL(url, sourceApplication: sourceApplication, annotation: annotation)
-//    }
+    // To run in IOS9 or older
+    func application(application: UIApplication,
+                     openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
+        if #available(iOS 9.0, *) {
+            var options: [String: AnyObject] = [UIApplicationOpenURLOptionsSourceApplicationKey: sourceApplication!,
+                                                UIApplicationOpenURLOptionsAnnotationKey: annotation]
+        } else {
+            // Fallback on earlier versions
+        }
+        return GIDSignIn.sharedInstance().handleURL(url,
+                                                    sourceApplication: sourceApplication,
+                                                    annotation: annotation)
+    }
 
     func showMessagePrompt(error: String) {
         print(error)

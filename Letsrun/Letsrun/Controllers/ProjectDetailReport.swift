@@ -23,17 +23,15 @@ class ProjectDetailReport: UIView {
      // Finished implementing comments from users
      
      Aug 11, 2016
-     //
+     // Finished ability to post user pics and comments.
      
      Aug 12, 2016
      // Polishing UI
      
      
     //MARK: TO DO LIST
-     * Need to finish posting image and saving to Firebase
-     * Check for adding friends template
+     * Show user picture on the post
      * Add chat feature within the group.
-     * Clean up UI
      * Users profile when clicked images.
      * Group event creation
      * Send text invite or email

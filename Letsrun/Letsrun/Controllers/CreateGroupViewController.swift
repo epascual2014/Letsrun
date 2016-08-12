@@ -161,7 +161,7 @@ class CreateGroupViewController: UIViewController {
         messageVC.recipients = ["Enter number"]
         messageVC.messageComposeDelegate = self
     
-        self.presentViewController(messageVC, animated: true, completion: nil)
+        self.presentViewController(messageVC, animated: false, completion: nil)
     }
     
     

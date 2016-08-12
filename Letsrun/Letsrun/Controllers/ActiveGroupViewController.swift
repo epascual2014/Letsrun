@@ -15,7 +15,6 @@ class ActiveGroupViewController: UIViewController {
     
     var currentGroup = Group?()
     
-    
     //Checking whether current user is a group member.
     var groupMember = [String:Bool]() {
         didSet {

@@ -10,6 +10,9 @@ import UIKit
 import Firebase
 class GroupsTimelineTableViewController: UITableViewController {
     
+    @IBOutlet var searchBar: UITableView!
+    
+    
     // Firebase reference
     var ref: FIRDatabaseReference!
     var groupsReference: FIRDatabaseReference!
@@ -46,7 +49,7 @@ class GroupsTimelineTableViewController: UITableViewController {
             self.groupArray.removeAll()
             for groupSnap in groupSnapshot.children {
                 let group = Group(groupSnapshot: (groupSnap as! FIRDataSnapshot))
-
+                
                 // Adds value to the group
                 self.groupArray.append(group)
                 self.tableView.reloadData()
@@ -61,22 +64,22 @@ class GroupsTimelineTableViewController: UITableViewController {
         // app does not keep a constant connection with Firebase.
         groupsReference.removeAllObservers()
     }
-
-
+    
+    
     // MARK: - TableViews
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
-
+    
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return groupArray.count
     }
-
+    
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-
+        
         // Dequeue cell
         let cell  = tableView.dequeueReusableCellWithIdentifier("displayGroups", forIndexPath: indexPath) as! TimelineTableViewCell
         
@@ -86,11 +89,11 @@ class GroupsTimelineTableViewController: UITableViewController {
         if let groupImageUrl = group.groupImageUrl {
             cell.groupImageView.loadImageUsingCacheWithUrlString(groupImageUrl)
         }
-
+        
         print(cell.groupImageView)
         return cell
     }
- 
+    
     //MARK: Prepare for segue
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let identifier = segue.identifier {
@@ -98,7 +101,7 @@ class GroupsTimelineTableViewController: UITableViewController {
                 
                 print("Table View cell tapped")
                 let indexPath = tableView.indexPathForSelectedRow!
-    
+                
                 let currentGroup = groupArray[indexPath.row]
                 
                 let displayActiveGroupViewController = segue.destinationViewController as! ActiveGroupViewController
@@ -117,10 +120,6 @@ class GroupsTimelineTableViewController: UITableViewController {
     @IBAction func unwindToActiveGroupInfoViewController(segue: UIStoryboardSegue) {
         
     }
-
-    @IBAction func unwindToCreateGroupInfoViewController(segue: UIStoryboardSegue) {
-        
-    }
 }
 
 extension GroupsTimelineTableViewController: UISearchBarDelegate {
@@ -130,6 +129,32 @@ extension GroupsTimelineTableViewController: UISearchBarDelegate {
         
     }
     
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchBar.text?.characters.count >= 3 {
+            groupSearch(searchBar.text!)
+        } else {
+            fetchGroups()
+        }
+    }
     
+    func groupSearch(searchTerm: String) {
+        // set array to be empty
+        self.groupArray = []
+        
+        let endSearchTerm = "\(searchTerm)zzzzzzzzzzzzz"
+        
+        let groupRef = FIRDatabase.database().reference().child("groups")
+        groupRef.queryOrderedByChild("groups").queryStartingAtValue(searchTerm).queryEndingAtValue(endSearchTerm).observeSingleEventOfType(.Value, withBlock: {(groupSnapshot: FIRDataSnapshot) in
+            
+            
+            self.groupArray.removeAll()
+            for groupSnap in groupSnapshot.children {
+                let group = Group(groupSnapshot: (groupSnap as! FIRDataSnapshot))
+                
+                // Adds value to the group
+                self.groupArray.append(group)
+                self.tableView.reloadData()
+            }
+        })
+    }
 }
-

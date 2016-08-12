@@ -8,10 +8,12 @@
 
 import UIKit
 import Firebase
+import GoogleSignIn
+import FirebaseAuth
 import SwiftKeychainWrapper
 
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
     
     
     @IBOutlet weak var backgroundImageView: UIImageView!
@@ -21,10 +23,10 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var notAUserYetLabel: UILabel!
     @IBOutlet weak var registerButton: UIButton!
-    //    @IBOutlet weak var signInButton: GIDSignInButton!
+    @IBOutlet weak var signInButton: GIDSignInButton!
     
     
-    @IBAction func loginTappedButton(sender: UIButton) {        
+    @IBAction func loginTappedButton(sender: UIButton) {
         guard let userEmail = emailLoginTextfield.text, userPassword = passwordTextfield.text else {
             print("Form not valid")
             return
@@ -43,6 +45,7 @@ class LoginViewController: UIViewController {
         }
     }
     
+    // MARK: Login with email
     func loginWithEmail() {
         guard let userEmail = emailLoginTextfield.text, userPassword = passwordTextfield.text else {
             
@@ -66,6 +69,7 @@ class LoginViewController: UIViewController {
         })
     }
     
+    // MARK: Complete Sign in Firebase
     func completeSignIn(uid: String, userData: [String:AnyObject]) {
         DataSource.dataSource.createFirebaseUser(uid, userData: userData)
         let keyChainResult = KeychainWrapper.setString(uid, forKey: KEY_UID)
@@ -91,23 +95,45 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //        GIDSignIn.sharedInstance().uiDelegate = self
+        //
+        GIDSignIn.sharedInstance().clientID = FIRApp.defaultApp()?.options.clientID
+        GIDSignIn.sharedInstance().delegate = self
+        GIDSignIn.sharedInstance().uiDelegate = self
+    
         
     }
-
-
-    //
-    //    //MARK: GID Sign in
-    //    func signIn(signIn: GIDSignIn!, didSignInForUser user: GIDGoogleUser!, withError error: NSError!) {
-    //        if (error == nil) {
-    //            // Perform any operations on sign in user here
-    //            //performSegueWithIdentifier("presentTabBarController", sender: nil)
-    //        } else {
-    //            print("\(error.localizedDescription)")
-    //
-    //        }
-    //    }
     
+    // Firebase Google SignIn Authentication
+    func signIn(signIn: GIDSignIn!, didSignInForUser user: GIDGoogleUser!, withError error: NSError!) {
+        if let error = error {
+            // self.showMessagePrompt(error.localizedDescription)
+            print(error.localizedDescription)
+            return
+        }
+        
+        let authentication = user.authentication
+        let credential = FIRGoogleAuthProvider.credentialWithIDToken(authentication.idToken, accessToken: authentication.accessToken)
+        FIRAuth.auth()?.signInWithCredential(credential, completion: { (user, error) in
+            if error != nil {
+                print(error?.localizedDescription)
+                return
+            }
+                print("ED: --> User loggin in with google")
+                self.performSegueWithIdentifier("presentTabBarController", sender: nil)
+        })
+    }
+    
+    //MARK: GID Sign out
+    func signIn(signIn: GIDSignIn!, didDisconnectWithUser user: GIDGoogleUser!, withError error: NSError!) {
+        if let error = error {
+            print("\(error.localizedDescription)")
+            return
+        }
+        try! FIRAuth.auth()?.signOut()
+    }
+    
+    
+    // MARK: Prepare segue
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showUserInfoViewController" {
             guard let navigationController = segue.destinationViewController as? UINavigationController, userInfoViewController = navigationController.topViewController as? CreateUserViewController, userCredentialInfo = sender as? [String:String] else { return }

@@ -176,20 +176,8 @@
                                     <action selector="loginTappedButton:" destination="zie-Tr-zzw" eventType="touchUpInside" id="j0n-tJ-NaF"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="or sign in with Google" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F6b-J7-psX">
-                                <rect key="frame" x="132" y="401" width="166" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Click here to register" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="48h-ZI-JCA">
-                                <rect key="frame" x="56" y="338" width="287" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" alpha="0.94999999999999996" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="887-4f-kPR">
-                                <rect key="frame" x="69" y="367" width="274" height="26"/>
+                                <rect key="frame" x="69" y="387" width="274" height="26"/>
                                 <color key="backgroundColor" red="0.80392156862745101" green="0.80392156862745101" blue="0.59607843137254901" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <state key="normal" title="REGISTER">
@@ -199,6 +187,18 @@
                                     <action selector="registerTappedButton:" destination="zie-Tr-zzw" eventType="touchUpInside" id="0Bv-UD-9df"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="LETS RUN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kB0-ct-07S">
+                                <rect key="frame" x="70" y="81" width="276" height="33"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Click here to register" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="48h-ZI-JCA">
+                                <rect key="frame" x="56" y="358" width="287" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -252,14 +252,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" id="R2p-nN-7db">
-                            <rect key="frame" x="0.0" y="64" width="414" height="44"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <textInputTraits key="textInputTraits"/>
-                        </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="displayGroups" rowHeight="89" id="VTB-F2-N00" customClass="TimelineTableViewCell" customModule="Letsrun" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="136" width="414" height="89"/>
+                                <rect key="frame" x="0.0" y="92" width="414" height="89"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VTB-F2-N00" id="i4P-Ah-HCv">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="88.5"/>
@@ -302,10 +297,13 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="searchBar" destination="k45-a0-xiq" id="lwh-PS-VTu"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8XW-aS-pp9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1567" y="-1325"/>
+            <point key="canvasLocation" x="-1637" y="-1345"/>
         </scene>
         <!--Group Creation-->
         <scene sceneID="oEe-4a-lcY">
@@ -359,7 +357,7 @@
                                     <color key="titleColor" red="0.99492442607879639" green="0.99004387855529785" blue="0.98989319801330566" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="inviteFriendsTapped:" destination="oZP-19-ajd" eventType="touchUpInside" id="CPQ-SR-p2J"/>
+                                    <action selector="inviteFriendsTapped:" destination="oZP-19-ajd" eventType="touchUpInside" id="W7Y-ou-eXt"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -390,6 +388,52 @@
                 <exit id="idQ-oW-bcQ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-529" y="-1317"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="QjH-4G-INS">
+            <objects>
+                <navigationController id="UYD-ku-2Sq" sceneMemberID="viewController">
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ARJ-Pd-C4a">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="SE7-06-b0f" kind="show" id="x3O-jO-zsf"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="txM-xG-Cb6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="153" y="-185"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="ohv-x1-mkZ">
+            <objects>
+                <viewController id="SE7-06-b0f" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="aWV-RP-bfI"/>
+                        <viewControllerLayoutGuide type="bottom" id="E2d-Rf-1AJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="B3J-xL-QK7">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l6x-Kf-aeB">
+                                <rect key="frame" x="0.0" y="64" width="414" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YyQ-Fe-5D3">
+                                <rect key="frame" x="0.0" y="108" width="414" height="628"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="H7B-fO-aLe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="166" y="617"/>
         </scene>
         <!--CURRENT GROUP-->
         <scene sceneID="Esm-Wq-a4k">
@@ -610,11 +654,73 @@
                             <outlet property="delegate" destination="akj-j6-T6z" id="yRw-3O-6G1"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="FRIENDS" id="x1C-87-qpl"/>
+                    <navigationItem key="navigationItem" title="FRIENDS" id="x1C-87-qpl">
+                        <barButtonItem key="rightBarButtonItem" title="Chat" id="qpY-m5-baq">
+                            <color key="tintColor" red="0.0" green="0.74901960779999999" blue="0.64705882349999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <segue destination="IMG-9h-QuC" kind="show" id="keC-mt-Rw3"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wb1-ys-phk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1207" y="-490"/>
+        </scene>
+        <!--Title-->
+        <scene sceneID="bVf-Ew-Jyf">
+            <objects>
+                <tableViewController id="IMG-9h-QuC" customClass="ActiveTweetsTableViewController" customModule="Letsrun" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="61" sectionHeaderHeight="28" sectionFooterHeight="28" id="fOc-6e-8hE">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="displayTweets" rowHeight="61" id="OVU-KU-HrC" customClass="ActiveTweetsTableViewCell" customModule="Letsrun" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="414" height="61"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OVU-KU-HrC" id="P2f-ey-X2s">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="60.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Myo-sq-bYG">
+                                            <rect key="frame" x="15" y="20" width="85" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cJ9-oE-wmU">
+                                            <rect key="frame" x="89" y="20" width="293" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="currentTweetLabel" destination="cJ9-oE-wmU" id="S6A-ic-ybZ"/>
+                                    <outlet property="userLabel" destination="Myo-sq-bYG" id="2H0-CV-WHp"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="IMG-9h-QuC" id="f13-d7-A1u"/>
+                            <outlet property="delegate" destination="IMG-9h-QuC" id="xby-PD-DOl"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Title" id="z3x-1a-foq">
+                        <barButtonItem key="rightBarButtonItem" title="Tweet" id="JrD-Af-CQp">
+                            <color key="tintColor" red="0.0" green="0.74901960779999999" blue="0.64705882349999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="addTweetTapped:" destination="IMG-9h-QuC" id="dFw-8B-adc"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cFJ-DX-kv9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-734" y="-490"/>
         </scene>
         <!--Running Groups-->
         <scene sceneID="jSb-yk-z1C">
@@ -887,7 +993,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="usg-tf-mQk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1567" y="-2159"/>
+            <point key="canvasLocation" x="-1567" y="-2178"/>
         </scene>
         <!--User Profile-->
         <scene sceneID="w2y-Qn-gE9">
@@ -1089,6 +1195,6 @@
         <image name="user_icon" width="1200" height="1200"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="VZm-cw-En5"/>
+        <segue reference="Gi0-Oc-hyn"/>
     </inferredMetricsTieBreakers>
 </document>
